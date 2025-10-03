@@ -4,206 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog de Diseño de Interfaces Web - 2º DAW</title>
-<style>
-/* Reset básico */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
-
-/* Body */
-body {
-    background-color: #121212;
-    color: #eee;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-    text-align: center;
-    padding: 3rem 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-header h1 {
-    font-size: 3rem;
-    color: #ff6f61;
-    animation: fadeIn 1s ease forwards;
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #61dafb;
-    margin-top: 1rem;
-    opacity: 0;
-    animation: fadeIn 1.5s ease forwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes fadeIn {
-    0% {opacity:0; transform: translateY(-20px);}
-    100% {opacity:1; transform: translateY(0);}
-}
-
-/* Navegación */
-nav {
-    background: #1c1c1c;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style:none;
-    position: relative;
-}
-
-nav ul li {
-    margin: 0.5rem 1rem;
-    position: relative;
-}
-
-nav ul li a {
-    color:#eee;
-    text-decoration:none;
-    padding:0.8rem 1.5rem;
-    border-radius:10px;
-    transition: all 0.3s;
-    font-weight:bold;
-    display: block;
-}
-
-nav ul li a:hover {
-    background:#ff6f61;
-    color:#121212;
-    transform: scale(1.1);
-}
-
-/* Menú desplegable */
-nav ul li ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background:#2c2c2c;
-    padding:0.5rem 0;
-    border-radius:10px;
-    min-width:180px;
-    z-index: 100;
-}
-
-nav ul li:hover ul {
-    display:block;
-}
-
-nav ul li ul li {
-    margin:0;
-}
-
-nav ul li ul li a {
-    padding:0.5rem 1rem;
-}
-
-nav ul li ul li a:hover {
-    background:#ff6f61;
-    color:#121212;
-}
-
-/* Contenedor principal */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding:0 1rem;
-    gap:2rem;
-}
-
-/* Contenido principal */
-.content {
-    flex:3;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap:2rem;
-}
-
-/* Tarjetas de artículos */
-article {
-    background:#1f1f1f;
-    padding:2rem;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(255,111,97,0.2);
-    transition: transform 0.4s, box-shadow 0.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-article:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow:0 15px 30px rgba(255,111,97,0.5);
-}
-
-article h2 {color:#ff6f61; margin-bottom:1rem;}
-article p {color:#aaa; margin-bottom:1.5rem;}
-
-/* Botones */
-.btn {
-    display:inline-block;
-    padding:0.7rem 1.5rem;
-    border-radius:25px;
-    background:#61dafb;
-    color:#121212;
-    font-weight:bold;
-    text-decoration:none;
-    box-shadow:0 0 10px #61dafb;
-    transition: all 0.3s;
-}
-
-.btn:hover {
-    box-shadow:0 0 20px #ff6f61, 0 0 30px #61dafb;
-    transform: scale(1.1);
-}
-
-/* Barra lateral de contacto */
-.sidebar-contact {
-    flex:1;
-    background:#1f1f1f;
-    padding:1.5rem;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.5);
-    height: fit-content;
-    transition: transform 0.3s;
-}
-
-.sidebar-contact:hover {transform: translateY(-5px);}
-.sidebar-contact h3 {color:#ff6f61; margin-bottom:1rem;}
-.sidebar-contact p, .sidebar-contact a {color:#61dafb; margin-bottom:0.8rem; display:block; text-decoration:none;}
-.sidebar-contact a:hover {color:#ff6f61; transform: scale(1.05);}
-
-/* Footer */
-footer {
-    text-align:center;
-    padding:3rem 1rem;
-    background:#1c1c1c;
-    color:#eee;
-    margin-top: auto;
-    box-shadow:0 -4px 10px rgba(0,0,0,0.5);
-}
-footer a {
-    color:#61dafb;
-    margin:0 0.5rem;
-    text-decoration:none;
-    transition: all 0.3s;
-}
-footer a:hover {color:#ff6f61;}
-
-/* Responsive */
-@media(max-width: 900px){
-    .container{flex-direction:column;}
-}
-</style>
+<link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
@@ -232,25 +33,25 @@ footer a:hover {color:#ff6f61;}
         <article>
             <h2>UI Minimalista</h2>
             <p>Aprende a crear interfaces limpias y funcionales aplicando principios de diseño minimalista.</p>
-            <a href="#" class="btn">Leer más</a>
+            <a href="posts/post1.html" class="btn">Leer más</a>
         </article>
 
         <article>
             <h2>Prototipado en Figma</h2>
             <p>Descubre cómo hacer prototipos interactivos de alta fidelidad con Figma para tus proyectos web.</p>
-            <a href="#" class="btn">Leer más</a>
+            <a href="posts/post2.html" class="btn">Leer más</a>
         </article>
 
         <article>
             <h2>Frameworks Modernos</h2>
             <p>Comparativa de frameworks como Bootstrap, Tailwind y Material UI para interfaces modernas.</p>
-            <a href="#" class="btn">Leer más</a>
+            <a href="posts/post3.html" class="btn">Leer más</a>
         </article>
 
         <article>
             <h2>Colores y Tipografía</h2>
             <p>Cómo elegir paletas de colores y tipografías que mejoren la UX y la estética de tu web.</p>
-            <a href="#" class="btn">Leer más</a>
+            <a href="posts/post4.html" class="btn">Leer más</a>
         </article>
     </div>
 
@@ -277,3 +78,4 @@ footer a:hover {color:#ff6f61;}
 
 </body>
 </html>
+

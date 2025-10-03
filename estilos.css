@@ -190,7 +190,7 @@ footer a {
     text-decoration:none;
     transition: all 0.3s;
 }
-footer a:hover {color:#ff6f61;}
+footer a:hover {color:#ff6f62;}
 
 /* Responsive */
 @media(max-width: 900px){

@@ -1,171 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog de Ejercicios</title>
-    <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog de Diseño de Interfaces Web - 2º DAW</title>
+<style>
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
 
-        body {
-            background: linear-gradient(to right, #f0e5ff, #ffffff);
-            color: #333;
-            line-height: 1.6;
-        }
+/* Body */
+body {
+    background-color: #121212;
+    color: #eee;
+    line-height: 1.6;
+}
 
-        header {
-            background: linear-gradient(135deg, #8e44ad, #6c3483);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+/* Header */
+header {
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-        }
+header h1 {
+    font-size: 3rem;
+    color: #ff6f61;
+    animation: fadeIn 1s ease forwards;
+}
 
-        header p {
-            font-size: 1.2rem;
-            font-style: italic;
-        }
+header p {
+    font-size: 1.2rem;
+    color: #61dafb;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+}
 
-        nav {
-            background-color: #5e3370;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
+@keyframes fadeIn {
+    0% {opacity:0; transform: translateY(-20px);}
+    100% {opacity:1; transform: translateY(0);}
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
+/* Navegación */
+nav {
+    background: #1c1c1c;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        nav ul li {
-            margin: 0 1rem;
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style:none;
+    position: relative;
+}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            display: block;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+nav ul li {
+    margin: 0.5rem 1rem;
+    position: relative;
+}
 
-        nav ul li a:hover {
-            background-color: #9b59b6;
-            transform: scale(1.05);
-        }
+nav ul li a {
+    color:#eee;
+    text-decoration:none;
+    padding:0.8rem 1.5rem;
+    border-radius:10px;
+    transition: all 0.3s;
+    font-weight:bold;
+    display: block;
+}
 
-        main {
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+nav ul li a:hover {
+    background:#ff6f61;
+    color:#121212;
+    transform: scale(1.1);
+}
 
-        article {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+/* Menú desplegable */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background:#2c2c2c;
+    padding:0.5rem 0;
+    border-radius:10px;
+    min-width:180px;
+    z-index: 100;
+}
 
-        article:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-        }
+nav ul li:hover ul {
+    display:block;
+}
 
-        article h2 {
-            color: #8e44ad;
-            margin-bottom: 1rem;
-        }
+nav ul li ul li {
+    margin:0;
+}
 
-        article p {
-            margin-bottom: 1.5rem;
-        }
+nav ul li ul li a {
+    padding:0.5rem 1rem;
+}
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
-        }
+nav ul li ul li a:hover {
+    background:#ff6f61;
+    color:#121212;
+}
 
-        .btn:hover {
-            background: linear-gradient(45deg, #8e44ad, #6c3483);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
-        }
+/* Contenedor principal */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding:0 1rem;
+    gap:2rem;
+}
 
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            background-color: #5e3370;
-            color: white;
-            margin-top: 3rem;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
-        }
+/* Contenido principal */
+.content {
+    flex:3;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:2rem;
+}
 
-    </style>
+/* Tarjetas de artículos */
+article {
+    background:#1f1f1f;
+    padding:2rem;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(255,111,97,0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+article:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:0 15px 30px rgba(255,111,97,0.5);
+}
+
+article h2 {color:#ff6f61; margin-bottom:1rem;}
+article p {color:#aaa; margin-bottom:1.5rem;}
+
+/* Botones */
+.btn {
+    display:inline-block;
+    padding:0.7rem 1.5rem;
+    border-radius:25px;
+    background:#61dafb;
+    color:#121212;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 0 10px #61dafb;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    box-shadow:0 0 20px #ff6f61, 0 0 30px #61dafb;
+    transform: scale(1.1);
+}
+
+/* Barra lateral de contacto */
+.sidebar-contact {
+    flex:1;
+    background:#1f1f1f;
+    padding:1.5rem;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+    height: fit-content;
+    transition: transform 0.3s;
+}
+
+.sidebar-contact:hover {transform: translateY(-5px);}
+.sidebar-contact h3 {color:#ff6f61; margin-bottom:1rem;}
+.sidebar-contact p, .sidebar-contact a {color:#61dafb; margin-bottom:0.8rem; display:block; text-decoration:none;}
+.sidebar-contact a:hover {color:#ff6f61; transform: scale(1.05);}
+
+/* Footer */
+footer {
+    text-align:center;
+    padding:3rem 1rem;
+    background:#1c1c1c;
+    color:#eee;
+    margin-top: auto;
+    box-shadow:0 -4px 10px rgba(0,0,0,0.5);
+}
+footer a {
+    color:#61dafb;
+    margin:0 0.5rem;
+    text-decoration:none;
+    transition: all 0.3s;
+}
+footer a:hover {color:#ff6f61;}
+
+/* Responsive */
+@media(max-width: 900px){
+    .container{flex-direction:column;}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Blog de Mis Ejercicios</h1>
-        <p>Aprendiendo y practicando con ejemplos de clase</p>
-    </header>
+<header>
+    <h1>Blog de Diseño de Interfaces Web</h1>
+    <p>2º DAW - Aprende, diseña y experimenta con UI moderna</p>
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Ejercicios</a></li>
-            <li><a href="#">Proyectos</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li>
+            <a href="#">Categorías ▼</a>
+            <ul>
+                <li><a href="#">UI/UX</a></li>
+                <li><a href="#">Prototipos</a></li>
+                <li><a href="#">Frameworks</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Recursos</a></li>
+    </ul>
+</nav>
 
-    <main>
+<div class="container">
+    <div class="content">
         <article>
-            <h2>Ejercicio 1: Hola Mundo</h2>
-            <p>Este es un ejemplo básico de HTML y CSS para comenzar con mis ejercicios de clase. Aprendemos a estructurar un documento y darle estilo.</p>
+            <h2>UI Minimalista</h2>
+            <p>Aprende a crear interfaces limpias y funcionales aplicando principios de diseño minimalista.</p>
             <a href="#" class="btn">Leer más</a>
         </article>
 
         <article>
-            <h2>Ejercicio 2: Estilos y Colores</h2>
-            <p>En este ejercicio practicamos con colores, fondos y tipografía para que nuestro blog se vea atractivo y legible.</p>
+            <h2>Prototipado en Figma</h2>
+            <p>Descubre cómo hacer prototipos interactivos de alta fidelidad con Figma para tus proyectos web.</p>
             <a href="#" class="btn">Leer más</a>
         </article>
 
         <article>
-            <h2>Ejercicio 3: Layout Responsivo</h2>
-            <p>Ahora aprendemos a hacer que nuestro blog se vea bien en móviles y tablets usando diseño responsivo.</p>
+            <h2>Frameworks Modernos</h2>
+            <p>Comparativa de frameworks como Bootstrap, Tailwind y Material UI para interfaces modernas.</p>
             <a href="#" class="btn">Leer más</a>
         </article>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Adrián Aránegas Molina. Todos los derechos reservados.</p>
-    </footer>
+        <article>
+            <h2>Colores y Tipografía</h2>
+            <p>Cómo elegir paletas de colores y tipografías que mejoren la UX y la estética de tu web.</p>
+            <a href="#" class="btn">Leer más</a>
+        </article>
+    </div>
+
+    <aside class="sidebar-contact">
+        <h3>Contáctanos</h3>
+        <p><strong>Nombre:</strong> Adrián Aránegas Molina</p>
+        <p><strong>Email:</strong> adrian@example.com</p>
+        <p><strong>Teléfono:</strong> +34 123 456 789</p>
+        <p><strong>Redes Sociales:</strong></p>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
+    <p>
+        <a href="#">Inicio</a>|
+        <a href="#">Categorías</a>|
+        <a href="#">Recursos</a>
+    </p>
+</footer>
 
 </body>
 </html>

@@ -1,91 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog de Diseño de Interfaces Web - 2º DAW</title>
-<link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Diseño de Interfaces Web - 2º DAW</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Blog de Diseño de Interfaces Web</h1>
-    <p>2º DAW - Aprende, diseña y experimenta con UI moderna</p>
-</header>
+    <header>
+        <h1>Blog de Diseño de Interfaces Web</h1>
+        <p>2º DAW - Aprende, diseña y experimenta con UI moderna</p>
+    </header>
 
-<nav>
-    <ul>
-        <li><a href="#">Inicio</a></li>
-        <li>
-            <a href="#">Categorías ▼</a>
-            <ul>
-                <li><a href="#">UI/UX</a></li>
-                <li><a href="#">Prototipos</a></li>
-                <li><a href="#">Frameworks</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Recursos</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Recursos</a></li>
+        </ul>
+    </nav>
 
-<div class="container">
-    <div class="content" id="ejercicios-container">
-        <!-- Aquí se generarán los ejercicios automáticamente -->
+    <div class="container">
+        <div class="content" id="ejercicios-container">
+        </div>
+
+        <aside class="sidebar-contact">
+            <h3>Contáctanos</h3>
+            <p><strong>Nombre:</strong> Adrián Aránegas Molina</p>
+            <p><strong>Email:</strong> adrian@example.com</p>
+            <p><strong>Teléfono:</strong> +34 123 456 789</p>
+            <p><strong>Redes Sociales:</strong></p>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+        </aside>
     </div>
 
-    <aside class="sidebar-contact">
-        <h3>Contáctanos</h3>
-        <p><strong>Nombre:</strong> Adrián Aránegas Molina</p>
-        <p><strong>Email:</strong> adrian@example.com</p>
-        <p><strong>Teléfono:</strong> +34 123 456 789</p>
-        <p><strong>Redes Sociales:</strong></p>
-        <a href="#">Twitter</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-    </aside>
-</div>
+    <footer>
+        <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
+        <p>
+            <a href="#">Inicio</a>|
+            <a href="#">Recursos</a>
+        </p>
+    </footer>
 
-<footer>
-    <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
-    <p>
-        <a href="#">Inicio</a>|
-        <a href="#">Categorías</a>|
-        <a href="#">Recursos</a>
-    </p>
-</footer>
+    <script>
+        // La estructura de datos se mantiene para generar las tarjetas
+        const ejercicios = [{
+            archivo: "Blog/Actividad1.2.html",
+            titulo: "Ejercicio1",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Actividad1.3.html",
+            titulo: "",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Actividad1.4.html",
+            titulo: "",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Actividad1.5/Actividad1.5.html",
+            titulo: "",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Ejercicio1.7.html",
+            titulo: "",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Ejercicio8.html",
+            titulo: "",
+            descripcion: ""
+        }, {
+            archivo: "Blog/Ejercicio1.9.html",
+            titulo: "",
+            descripcion: ""
+        }];
 
-<script>
-// Lista de ejercicios de la carpeta Blog
-const ejercicios = [
-    "ejercicio1.html",
-    "ejercicio2.html",
-    "ejercicio3.html",
-    "ejercicio4.html",
-    "ejercicio5.html",
-    "ejercicio6.html"
-    // Añade aquí todos los archivos que tengas
-];
+        // 1. GENERACIÓN DE TARJETAS EN EL CONTENIDO PRINCIPAL
+        const container = document.getElementById("ejercicios-container");
 
-const container = document.getElementById("ejercicios-container");
+        ejercicios.forEach((ej, index) => {
+            const article = document.createElement("article");
+            const titulo = document.createElement("h2");
+            const descripcion = document.createElement("p");
+            const enlace = document.createElement("a");
 
-ejercicios.forEach((archivo, index) => {
-    const article = document.createElement("article");
-    const titulo = document.createElement("h2");
-    const descripcion = document.createElement("p");
-    const enlace = document.createElement("a");
+            titulo.textContent = ej.titulo;
+            descripcion.textContent = ej.descripcion;
+            // Ruta asumida en 'tema-01/'
+            enlace.href = `tema-01/${ej.archivo}`;
+            enlace.className = "btn";
+            enlace.textContent = "Ver Ejercicio";
 
-    titulo.textContent = `Ejercicio ${index + 1}`;
-    descripcion.textContent = `Descripción breve del ${archivo}`;
-    enlace.href = `Blog/${archivo}`;
-    enlace.className = "btn";
-    enlace.textContent = "Ver ejercicio";
+            article.appendChild(titulo);
+            article.appendChild(descripcion);
+            article.appendChild(enlace);
+            container.appendChild(article);
+        });
 
-    article.appendChild(titulo);
-    article.appendChild(descripcion);
-    article.appendChild(enlace);
-    container.appendChild(article);
-});
-</script>
+        // 2. GENERACIÓN EN EL MENÚ DESPLEGABLE (Lógica eliminada ya que no existe el contenedor)
+        // El código para inyectar en el menú 'Categorías' ha sido eliminado.
+    </script>
 
 </body>
+
 </html>

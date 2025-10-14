@@ -49,32 +49,32 @@
     <script>
         // La estructura de datos se mantiene para generar las tarjetas
         const ejercicios = [{
-            archivo: "/Blog/Atividad1.2.html",
-            titulo: "Ejercicio1",
+            archivo: "Blog/Atividad1.2.html",
+            titulo: "Ejercicio 1",
             descripcion: ""
         }, {
-            archivo: "/Blog/Actividad1.3.html",
-            titulo: "",
+            archivo: "Blog/Actividad1.3.html",
+            titulo: "Ejercicio 2",
             descripcion: ""
         }, {
-            archivo: "/Blog/Actividad1.4.html",
-            titulo: "",
+            archivo: "Blog/Actividad1.4.html",
+            titulo: "Ejercicio 3",
             descripcion: ""
         }, {
-            archivo: "/Blog/Actividad1.5/Actividad1.5.html",
-            titulo: "",
+            archivo: "Blog/Actividad1.5/Actividad1.5.html",
+            titulo: "Ejercicio 4",
             descripcion: ""
         }, {
-            archivo: "/Blog/Ejercicio1.7.html",
-            titulo: "",
+            archivo: "Blog/Ejercicio1.7.html",
+            titulo: "Ejercicio 5",
             descripcion: ""
         }, {
-            archivo: "/Blog/Ejercicio8.html",
-            titulo: "",
+            archivo: "Blog/Ejercicio8.html",
+            titulo: "Ejercicio 6",
             descripcion: ""
         }, {
-            archivo: "/Blog/Ejercicio1.9.html",
-            titulo: "",
+            archivo: "Blog/Ejercicio1.9.html",
+            titulo: "Ejercicio 7",
             descripcion: ""
         }];
 
@@ -87,10 +87,18 @@
             const descripcion = document.createElement("p");
             const enlace = document.createElement("a");
 
-            titulo.textContent = ej.titulo;
+            // Añadir título si está vacío
+            if (ej.titulo === "") {
+                titulo.textContent = `Ejercicio ${index + 1}`;
+            } else {
+                titulo.textContent = ej.titulo;
+            }
+
             descripcion.textContent = ej.descripcion;
-            // Ruta asumida en 'tema-01/'
-            enlace.href = `tema-01/${ej.archivo}`;
+            
+            // CORRECCIÓN: USAR DIRECTAMENTE LA RUTA DEL OBJETO
+            enlace.href = ej.archivo; 
+            
             enlace.className = "btn";
             enlace.textContent = "Ver Ejercicio";
 

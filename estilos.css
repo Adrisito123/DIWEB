@@ -1,9 +1,9 @@
 /* Reset básico */
-* { 
-    margin:0; 
-    padding:0; 
-    box-sizing:border-box; 
-    font-family: 'Segoe UI', sans-serif; 
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* Body */
@@ -77,10 +77,10 @@ nav ul li a {
 nav ul li a:hover {
     background:#ff6f61;
     color:#121212;
-    transform: scale(1.05); /* Ligeramente más sutil que 1.1 */
+    transform: scale(1.05);
 }
 
-/* Menú desplegable (Aunque ya no lo usamos en la nueva nav, mantenemos los estilos) */
+/* Menú desplegable */
 nav ul li ul {
     display: none;
     position: absolute;
@@ -124,28 +124,31 @@ nav ul li ul li a:hover {
     display: none !important;
 }
 
-/* Contenido principal (Contenedor de Ejercicios) */
-/* Aplicamos el grid solo a los contenedores de contenido principal */
+/* Contenido general (Ambos #inicio-container y #ejercicios-container tienen esta clase) */
+.content {
+    /* Ambos deben tener flex: 3 para ocupar el 75% del ancho junto al sidebar */
+    flex:3; 
+    /* Quitamos display: grid de aquí. Se moverá a #ejercicios-container */
+    /* Para que #inicio-container se comporte como un bloque normal */
+}
+
+/* === Estilos ESPECÍFICOS por ID === */
+
+/* 1. Contenido de Ejercicios (Usamos Grid para las tarjetas) */
 #ejercicios-container {
-    flex:3;
-    display:grid;
+    display:grid; /* Aplicamos Grid solo aquí */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap:2rem;
 }
 
-/* Contenido de Inicio (Perfil Personal) */
-#inicio-container {
-    /* Ocupa todo el espacio disponible */
-    flex: 3; 
-}
-
+/* 2. Contenido de Inicio (Perfil Personal) */
 #inicio-container article {
-    /* Aseguramos que la tarjeta de inicio ocupe el 100% del espacio */
+    /* La tarjeta de inicio debe ocupar todo el ancho del contenedor padre */
     width: 100%;
-    display: block; 
+    display: block;
 }
 
-/* Estilos de la tarjeta de Perfil */
+/* Estilos de la tarjeta de Perfil (sin cambios) */
 .profile-content {
     display: flex;
     align-items: flex-start; /* Alinea arriba */
@@ -160,7 +163,7 @@ nav ul li ul li a:hover {
     object-fit: cover;
     border: 3px solid #61dafb; /* Borde de acento */
     box-shadow: 0 0 15px rgba(97, 218, 251, 0.6);
-    flex-shrink: 0; /* Evita que la imagen se comprima */
+    flex-shrink: 0;
 }
 
 .profile-text h3 {
@@ -178,7 +181,7 @@ nav ul li ul li a:hover {
 }
 
 
-/* Tarjetas de artículos (Usado tanto para Ejercicios como para el artículo de Inicio) */
+/* Tarjetas de artículos (General) */
 article {
     background:#1f1f1f;
     padding:2rem;
@@ -190,7 +193,7 @@ article {
 }
 
 article:hover {
-    transform: translateY(-8px) scale(1.01); /* Ajuste el efecto para que sea menos exagerado en la tarjeta de perfil */
+    transform: translateY(-8px) scale(1.01);
     box-shadow:0 15px 30px rgba(255,111,97,0.5);
 }
 
@@ -198,7 +201,7 @@ article h2 {color:#ff6f61; margin-bottom:1rem;}
 article p {color:#aaa; margin-bottom:1.5rem;}
 
 
-/* Botones */
+/* Botones (sin cambios) */
 .btn {
     display:inline-block;
     padding:0.7rem 1.5rem;
@@ -213,10 +216,10 @@ article p {color:#aaa; margin-bottom:1.5rem;}
 
 .btn:hover {
     box-shadow:0 0 20px #ff6f61, 0 0 30px #61dafb;
-    transform: scale(1.05); /* Ajuste del hover del botón */
+    transform: scale(1.05);
 }
 
-/* Barra lateral de contacto */
+/* Barra lateral de contacto (sin cambios) */
 .sidebar-contact {
     flex:1;
     background:#1f1f1f;
@@ -232,7 +235,7 @@ article p {color:#aaa; margin-bottom:1.5rem;}
 .sidebar-contact p, .sidebar-contact a {color:#61dafb; margin-bottom:0.8rem; display:block; text-decoration:none;}
 .sidebar-contact a:hover {color:#ff6f61; transform: scale(1.02);}
 
-/* Footer */
+/* Footer (sin cambios) */
 footer {
     text-align:center;
     padding:3rem 1rem;
@@ -249,18 +252,16 @@ footer a {
 }
 footer a:hover {color:#ff6f62;}
 
-/* Responsive */
+/* Responsive (sin cambios significativos) */
 @media(max-width: 900px){
     .container{flex-direction:column;}
     
-    /* El contenedor de ejercicios sigue siendo grid, pero solo ocupa el 100% del ancho */
     #ejercicios-container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
 @media(max-width: 600px){
-    /* En móviles, la sección de perfil se apila verticalmente */
     .profile-content{
         flex-direction: column;
         text-align: center;

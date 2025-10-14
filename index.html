@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Diseño de Interfaces Web - 2º DAW</title>
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* CLASE CSS TEMPORAL PARA CONTROL DE VISIBILIDAD 
+           (Aunque la lógica principal estará en JS)
+        */
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,13 +25,37 @@
 
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Ejercicios</a></li> 
+            <li><a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a></li>
+            <li><a href="#" onclick="showSection('ejercicios-container'); return false;">Ejercicios</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <div class="content" id="ejercicios-container">
+        
+        <div class="content" id="inicio-container">
+            <article class="full-width-card">
+                <h2>Hola, soy Adrián Aránegas Molina</h2>
+                <div class="profile-content">
+                    <img src="perfil.jpeg" alt="Foto de perfil de Adrián Aránegas Molina" class="profile-img">
+                    
+                    <div class="profile-text">
+                        <h3>Quién Soy</h3>
+                        <p>Soy un estudiante de 2º de Desarrollo de Aplicaciones Web (DAW) apasionado por el diseño de interfaces. Me centro en la creación de experiencias de usuario intuitivas y visualmente atractivas.</p>
+                        
+                        <h3>Mis Estudios</h3>
+                        <ul>
+                            <li>Título: Desarrollo de Aplicaciones Web (2º DAW)</li>
+                            <li>Centro: I.E.S. Ntra. Sra. de los Remedios </li>
+                            <li>Especialidad: Diseño de Interfaces Web (UI/UX), HTML5, CSS3 y JavaScript.</li>
+                        </ul>
+                        <p>Este blog es un recopilatorio de los ejercicios realizados en la asignatura de Diseño de Interfaces Web.</p>
+                    </div>
+                </div>
+            </article>
+            </div>
+
+
+        <div class="content hidden" id="ejercicios-container">
             </div>
 
         <aside class="sidebar-contact">
@@ -38,8 +70,8 @@
     <footer>
         <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
         <p>
-            <a href="#">Inicio</a>|
-            <a href="#">Ejercicios</a>
+            <a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a>|
+            <a href="#" onclick="showSection('ejercicios-container'); return false;">Ejercicios</a>
         </p>
     </footer>
 
@@ -48,44 +80,46 @@
         const ejercicios = [{
             archivo: "Blog/Atividad1.2.html",
             titulo: "El diseño web en la actualidad",
-            descripcion: ""
+            descripcion: "Descubre cómo las tendencias actuales están moldeando las interfaces que usamos a diario."
         }, {
             archivo: "Blog/Actividad1.3.html",
-            titulo: "Interfaz,Ui,Ux",
-            descripcion: ""
+            titulo: "Interfaz, UI, UX",
+            descripcion: "Definición y diferencias clave entre Interfaz de Usuario (UI) y Experiencia de Usuario (UX)."
         }, {
             archivo: "Blog/Actividad1.4.html",
             titulo: "Interacción Persona - Ordenador",
-            descripcion: ""
+            descripcion: "Estudio de cómo los usuarios interactúan con los sistemas informáticos y las mejores prácticas."
         }, {
             archivo: "Blog/Actividad1.5/Actividad1.5.html",
             titulo: "Leyes de Gestalt",
-            descripcion: ""
+            descripcion: "Principios psicológicos que explican cómo el ojo humano organiza los elementos visuales."
         }, {
             archivo: "Blog/Ejercicio1.7.html",
             titulo: "Elementos estructurales",
-            descripcion: ""
+            descripcion: "Análisis de la estructura básica de una web (Header, Nav, Main, Footer, Aside)."
         }, {
             archivo: "Blog/Ejercicio8.html",
             titulo: "Mi Tienda",
-            descripcion: ""
+            descripcion: "Ejercicio práctico de maquetación de una tienda online básica."
         }, {
             archivo: "Blog/Ejercicio1.9.html",
             titulo: "Elementos visuales, relacionales y prácticos",
-            descripcion: ""
+            descripcion: "Clasificación de los elementos de diseño según su función en la interfaz."
 
         }, {
             archivo: "Blog/Actividad1/Actividad1.html",
-            titulo: "Líena Temporal",
-            descripcion: ""
+            titulo: "Línea Temporal",
+            descripcion: "Recorrido histórico de la evolución del diseño web."
         }, {
             archivo: "Blog/Actividad1.10/inicio.html",
             titulo: "Sitemap",
-            descripcion: ""
+            descripcion: "Diseño de la arquitectura de la información y navegación de un sitio web."
         }];
 
-        // 1. GENERACIÓN DE TARJETAS EN EL CONTENIDO PRINCIPAL
-        const container = document.getElementById("ejercicios-container");
+        // ===============================================
+        // LÓGICA DE GENERACIÓN DE TARJETAS (Paso 1)
+        // ===============================================
+        const containerEjercicios = document.getElementById("ejercicios-container");
 
         ejercicios.forEach((ej, index) => {
             const article = document.createElement("article");
@@ -93,29 +127,49 @@
             const descripcion = document.createElement("p");
             const enlace = document.createElement("a");
 
-            // Añadir título si está vacío
-            if (ej.titulo === "") {
-                titulo.textContent = `Ejercicio ${index + 1}`;
-            } else {
-                titulo.textContent = ej.titulo;
-            }
-
+            titulo.textContent = ej.titulo || `Ejercicio ${index + 1}`; // Usa el título o un marcador
             descripcion.textContent = ej.descripcion;
 
-            // CORRECCIÓN: USAR DIRECTAMENTE LA RUTA DEL OBJETO
             enlace.href = ej.archivo;
-
             enlace.className = "btn";
             enlace.textContent = "Ver Ejercicio";
 
             article.appendChild(titulo);
             article.appendChild(descripcion);
             article.appendChild(enlace);
-            container.appendChild(article);
+            containerEjercicios.appendChild(article);
+        });
+        
+        // ===============================================
+        // LÓGICA PARA CONTROLAR QUÉ SECCIÓN SE MUESTRA (Paso 2)
+        // ===============================================
+        
+        /**
+         * Oculta todas las secciones de contenido y muestra solo la solicitada.
+         * @param {string} sectionId - El ID de la sección a mostrar ('inicio-container' o 'ejercicios-container').
+         */
+        function showSection(sectionId) {
+            // 1. Obtener todas las secciones de contenido que queremos controlar
+            const allSections = document.querySelectorAll('.container > .content');
+
+            // 2. Ocultar todas las secciones
+            allSections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // 3. Mostrar solo la sección deseada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+        }
+
+        // 4. Mostrar la sección de 'Inicio' al cargar la página por defecto
+        document.addEventListener('DOMContentLoaded', () => {
+            // Asegúrate de que solo se llama después de que el DOM esté listo
+            showSection('inicio-container');
         });
 
-        // 2. GENERACIÓN EN EL MENÚ DESPLEGABLE (Lógica eliminada ya que no existe el contenedor)
-        // El código para inyectar en el menú 'Categorías' ha sido eliminado.
     </script>
 
 </body>

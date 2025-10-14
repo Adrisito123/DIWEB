@@ -18,13 +18,13 @@
     <nav>
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Recursos</a></li>
+            <li><a href="#">Ejercicios</a></li> 
         </ul>
     </nav>
 
     <div class="container">
         <div class="content" id="ejercicios-container">
-        </div>
+            </div>
 
         <aside class="sidebar-contact">
             <h3>Contáctanos</h3>
@@ -39,7 +39,7 @@
         <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
         <p>
             <a href="#">Inicio</a>|
-            <a href="#">Recursos</a>
+            <a href="#">Ejercicios</a>
         </p>
     </footer>
 
@@ -73,7 +73,7 @@
             archivo: "Blog/Ejercicio1.9.html",
             titulo: "Elementos visuales, relacionales y prácticos",
             descripcion: ""
-            
+
         }, {
             archivo: "Blog/Actividad1/Actividad1.html",
             titulo: "Líena Temporal",
@@ -101,10 +101,10 @@
             }
 
             descripcion.textContent = ej.descripcion;
-            
+
             // CORRECCIÓN: USAR DIRECTAMENTE LA RUTA DEL OBJETO
-            enlace.href = ej.archivo; 
-            
+            enlace.href = ej.archivo;
+
             enlace.className = "btn";
             enlace.textContent = "Ver Ejercicio";
 

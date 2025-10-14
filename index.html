@@ -7,9 +7,7 @@
     <title>Blog de Diseño de Interfaces Web - 2º DAW</title>
     <link rel="stylesheet" href="estilos.css">
     <style>
-        /* CLASE CSS TEMPORAL PARA CONTROL DE VISIBILIDAD 
-           (Aunque la lógica principal estará en JS)
-        */
+        /* CLASE CSS PARA CONTROL DE VISIBILIDAD (Debería estar en estilos.css) */
         .hidden {
             display: none !important;
         }
@@ -52,7 +50,7 @@
                     </div>
                 </div>
             </article>
-            </div>
+        </div>
 
 
         <div class="content hidden" id="ejercicios-container">
@@ -76,6 +74,33 @@
     </footer>
 
     <script>
+        
+        // ===============================================
+        // 1. LÓGICA PARA CONTROLAR QUÉ SECCIÓN SE MUESTRA (MOVIDO AL INICIO)
+        // ===============================================
+        
+        /**
+         * Oculta todas las secciones de contenido y muestra solo la solicitada.
+         * @param {string} sectionId - El ID de la sección a mostrar ('inicio-container' o 'ejercicios-container').
+         */
+        function showSection(sectionId) {
+            // 1. Obtener todas las secciones de contenido que queremos controlar
+            // Nota: Se usa document.querySelectorAll('.container > .content') para asegurar que solo sean las secciones principales
+            const allSections = document.querySelectorAll('.container > .content');
+
+            // 2. Ocultar todas las secciones
+            allSections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // 3. Mostrar solo la sección deseada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+        }
+
+        
         // La estructura de datos se mantiene para generar las tarjetas
         const ejercicios = [{
             archivo: "Blog/Atividad1.2.html",
@@ -117,7 +142,8 @@
         }];
 
         // ===============================================
-        // LÓGICA DE GENERACIÓN DE TARJETAS (Paso 1)
+        // 2. LÓGICA DE GENERACIÓN DE TARJETAS (Paso 1)
+        // Se ejecuta al cargarse el script
         // ===============================================
         const containerEjercicios = document.getElementById("ejercicios-container");
 
@@ -127,7 +153,7 @@
             const descripcion = document.createElement("p");
             const enlace = document.createElement("a");
 
-            titulo.textContent = ej.titulo || `Ejercicio ${index + 1}`; // Usa el título o un marcador
+            titulo.textContent = ej.titulo || `Ejercicio ${index + 1}`;
             descripcion.textContent = ej.descripcion;
 
             enlace.href = ej.archivo;
@@ -141,30 +167,9 @@
         });
         
         // ===============================================
-        // LÓGICA PARA CONTROLAR QUÉ SECCIÓN SE MUESTRA (Paso 2)
+        // 3. INICIO POR DEFECTO (Paso 3)
+        // Se ejecuta una vez que el DOM está completamente cargado
         // ===============================================
-        
-        /**
-         * Oculta todas las secciones de contenido y muestra solo la solicitada.
-         * @param {string} sectionId - El ID de la sección a mostrar ('inicio-container' o 'ejercicios-container').
-         */
-        function showSection(sectionId) {
-            // 1. Obtener todas las secciones de contenido que queremos controlar
-            const allSections = document.querySelectorAll('.container > .content');
-
-            // 2. Ocultar todas las secciones
-            allSections.forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // 3. Mostrar solo la sección deseada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-            }
-        }
-
-        // 4. Mostrar la sección de 'Inicio' al cargar la página por defecto
         document.addEventListener('DOMContentLoaded', () => {
             // Asegúrate de que solo se llama después de que el DOM esté listo
             showSection('inicio-container');

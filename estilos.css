@@ -1,5 +1,10 @@
 /* Reset básico */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+* { 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+    font-family: 'Segoe UI', sans-serif; 
+}
 
 /* Body */
 body {
@@ -19,13 +24,13 @@ header {
 
 header h1 {
     font-size: 3rem;
-    color: #ff6f61;
+    color: #ff6f61; /* Color coral/naranja */
     animation: fadeIn 1s ease forwards;
 }
 
 header p {
     font-size: 1.2rem;
-    color: #61dafb;
+    color: #61dafb; /* Color cian */
     margin-top: 1rem;
     opacity: 0;
     animation: fadeIn 1.5s ease forwards;
@@ -72,10 +77,10 @@ nav ul li a {
 nav ul li a:hover {
     background:#ff6f61;
     color:#121212;
-    transform: scale(1.1);
+    transform: scale(1.05); /* Ligeramente más sutil que 1.1 */
 }
 
-/* Menú desplegable */
+/* Menú desplegable (Aunque ya no lo usamos en la nueva nav, mantenemos los estilos) */
 nav ul li ul {
     display: none;
     position: absolute;
@@ -114,15 +119,66 @@ nav ul li ul li a:hover {
     gap:2rem;
 }
 
-/* Contenido principal */
-.content {
+/* Clase para ocultar elementos (usada por JavaScript) */
+.hidden {
+    display: none !important;
+}
+
+/* Contenido principal (Contenedor de Ejercicios) */
+/* Aplicamos el grid solo a los contenedores de contenido principal */
+#ejercicios-container {
     flex:3;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap:2rem;
 }
 
-/* Tarjetas de artículos */
+/* Contenido de Inicio (Perfil Personal) */
+#inicio-container {
+    /* Ocupa todo el espacio disponible */
+    flex: 3; 
+}
+
+#inicio-container article {
+    /* Aseguramos que la tarjeta de inicio ocupe el 100% del espacio */
+    width: 100%;
+    display: block; 
+}
+
+/* Estilos de la tarjeta de Perfil */
+.profile-content {
+    display: flex;
+    align-items: flex-start; /* Alinea arriba */
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #61dafb; /* Borde de acento */
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.6);
+    flex-shrink: 0; /* Evita que la imagen se comprima */
+}
+
+.profile-text h3 {
+    color: #61dafb;
+    margin-bottom: 0.5rem;
+}
+
+.profile-text ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    padding-top: 0.5rem;
+}
+.profile-text ul li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* Tarjetas de artículos (Usado tanto para Ejercicios como para el artículo de Inicio) */
 article {
     background:#1f1f1f;
     padding:2rem;
@@ -134,12 +190,13 @@ article {
 }
 
 article:hover {
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-8px) scale(1.01); /* Ajuste el efecto para que sea menos exagerado en la tarjeta de perfil */
     box-shadow:0 15px 30px rgba(255,111,97,0.5);
 }
 
 article h2 {color:#ff6f61; margin-bottom:1rem;}
 article p {color:#aaa; margin-bottom:1.5rem;}
+
 
 /* Botones */
 .btn {
@@ -156,7 +213,7 @@ article p {color:#aaa; margin-bottom:1.5rem;}
 
 .btn:hover {
     box-shadow:0 0 20px #ff6f61, 0 0 30px #61dafb;
-    transform: scale(1.1);
+    transform: scale(1.05); /* Ajuste del hover del botón */
 }
 
 /* Barra lateral de contacto */
@@ -173,7 +230,7 @@ article p {color:#aaa; margin-bottom:1.5rem;}
 .sidebar-contact:hover {transform: translateY(-5px);}
 .sidebar-contact h3 {color:#ff6f61; margin-bottom:1rem;}
 .sidebar-contact p, .sidebar-contact a {color:#61dafb; margin-bottom:0.8rem; display:block; text-decoration:none;}
-.sidebar-contact a:hover {color:#ff6f61; transform: scale(1.05);}
+.sidebar-contact a:hover {color:#ff6f61; transform: scale(1.02);}
 
 /* Footer */
 footer {
@@ -195,8 +252,18 @@ footer a:hover {color:#ff6f62;}
 /* Responsive */
 @media(max-width: 900px){
     .container{flex-direction:column;}
-
+    
+    /* El contenedor de ejercicios sigue siendo grid, pero solo ocupa el 100% del ancho */
+    #ejercicios-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
 
-
-
+@media(max-width: 600px){
+    /* En móviles, la sección de perfil se apila verticalmente */
+    .profile-content{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}

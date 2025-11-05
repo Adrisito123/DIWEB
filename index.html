@@ -67,148 +67,96 @@
         </p>
     </footer>
 
-    <script>
-        
-        // ===============================================
-        // 1. LÓGICA PARA CONTROLAR QUÉ SECCIÓN SE MUESTRA (MOVIDO AL INICIO)
-        // ===============================================
-        
-        /**
-         * Oculta todas las secciones de contenido y muestra solo la solicitada.
-         * @param {string} sectionId - El ID de la sección a mostrar ('inicio-container' o 'ejercicios-container').
-         */
-        function showSection(sectionId) {
-            // 1. Obtener todas las secciones de contenido que queremos controlar
-            // Nota: Se usa document.querySelectorAll('.container > .content') para asegurar que solo sean las secciones principales
-            const allSections = document.querySelectorAll('.container > .content');
+<script>
+function showSection(sectionId) {
+    document.querySelectorAll('.container > .content').forEach(s => s.classList.add('hidden'));
+    const target = document.getElementById(sectionId);
+    if (target) target.classList.remove('hidden');
+}
 
-            // 2. Ocultar todas las secciones
-            allSections.forEach(section => {
-                section.classList.add('hidden');
+const temas = {
+    "Tema 1": [
+        { archivo: "Blog/Atividad1.2.html", titulo: "El diseño web en la actualidad", descripcion: "Descubre cómo las tendencias actuales están moldeando las interfaces." },
+        { archivo: "Blog/Actividad1.3.html", titulo: "Interfaz, UI, UX", descripcion: "Definición y diferencias entre UI y UX." },
+        { archivo: "Blog/Actividad1.4.html", titulo: "Interacción Persona - Ordenador", descripcion: "Cómo los usuarios interactúan con los sistemas informáticos." },
+        { archivo: "Blog/Actividad1.5/Actividad1.5.html", titulo: "Leyes de Gestalt", descripcion: "Principios psicológicos de percepción visual." },
+        { archivo: "Blog/Ejercicio1.7.html", titulo: "Elementos estructurales", descripcion: "Estructura básica de una web." },
+        { archivo: "Blog/Actividad1/Actividad1.html", titulo: "Línea Temporal", descripcion: "Evolución del diseño web." },
+        { archivo: "Blog/Actividad1.10/inicio.html", titulo: "Sitemap", descripcion: "Diseño de la arquitectura de información." },
+        { archivo: "Blog/Proyecto1/ProyectoUT1Planificacindeinterfaces.html", titulo: "Proyecto Tema 1", descripcion: "Proyecto de planificación de interfaces." }
+    ],
+    "Tema 2": [
+        { archivo: "Blog/Ejercicio2.2/Ejercicio2.2.html", titulo: "Orden de prioridad CSS", descripcion: "Aprende el orden de prioridad de estilos." },
+        { archivo: "Blog/Ejercicio2.3/Ejercicio2.3.html", titulo: "CSS en línea", descripcion: "Uso del atributo style directamente." },
+        { archivo: "Blog/Ejercicio2.4/Ejercicio2.4.html", titulo: "CSS en etiqueta style", descripcion: "Definir estilos dentro del HTML." },
+        { archivo: "Blog/Ejercicio2.5/Ejercicio2.5.html", titulo: "CSS en archivo externo", descripcion: "Vinculación de hojas de estilo externas." },
+        { archivo: "Blog/Ejercicio2.6/index.html", titulo: "Selectores básicos", descripcion: "Práctica de selectores CSS." }
+    ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("ejercicios-container");
+
+    Object.entries(temas).forEach(([tema, lista]) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "tema-wrapper";
+
+        const header = document.createElement("button");
+        header.className = "tema-header";
+        header.innerHTML = `
+            <div class="tema-icon"></div>
+            <span class="tema-title">${tema}</span>
+            <span class="arrow">▼</span>
+        `;
+
+        const content = document.createElement("div");
+        content.className = "tema-content";
+
+        const grid = document.createElement("div");
+        grid.className = "grid-ejercicios";
+
+        lista.forEach(ej => {
+            const article = document.createElement("article");
+            article.innerHTML = `
+                <h3>${ej.titulo}</h3>
+                <p>${ej.descripcion}</p>
+                <a href="${ej.archivo}" class="btn">Ver Ejercicio</a>
+            `;
+            grid.appendChild(article);
+        });
+
+        content.appendChild(grid);
+        wrapper.appendChild(header);
+        wrapper.appendChild(content);
+        container.appendChild(wrapper);
+
+        // --- Acordeón exclusivo ---
+        header.addEventListener("click", () => {
+            const isActive = header.classList.contains("active");
+
+            document.querySelectorAll(".tema-header").forEach(h => {
+                h.classList.remove("active");
+                h.querySelector(".arrow").classList.remove("rotated");
+            });
+            document.querySelectorAll(".tema-content").forEach(c => {
+                c.style.maxHeight = null;
             });
 
-            // 3. Mostrar solo la sección deseada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
+            if (!isActive) {
+                header.classList.add("active");
+                header.querySelector(".arrow").classList.add("rotated");
+                content.style.maxHeight = content.scrollHeight + "px";
             }
-        }
-
-        
-        // La estructura de datos se mantiene para generar las tarjetas
-        const ejercicios = [{
-            archivo: "Blog/Atividad1.2.html",
-            titulo: "El diseño web en la actualidad",
-            descripcion: "Descubre cómo las tendencias actuales están moldeando las interfaces que usamos a diario."
-        }, {
-            archivo: "Blog/Actividad1.3.html",
-            titulo: "Interfaz, UI, UX",
-            descripcion: "Definición y diferencias clave entre Interfaz de Usuario (UI) y Experiencia de Usuario (UX)."
-        }, {
-            archivo: "Blog/Actividad1.4.html",
-            titulo: "Interacción Persona - Ordenador",
-            descripcion: "Estudio de cómo los usuarios interactúan con los sistemas informáticos y las mejores prácticas."
-        }, {
-            archivo: "Blog/Actividad1.5/Actividad1.5.html",
-            titulo: "Leyes de Gestalt",
-            descripcion: "Principios psicológicos que explican cómo el ojo humano organiza los elementos visuales."
-        }, {
-            archivo: "Blog/Ejercicio1.7.html",
-            titulo: "Elementos estructurales",
-            descripcion: "Análisis de la estructura básica de una web (Header, Nav, Main, Footer, Aside)."
-        }, {
-            archivo: "Blog/Ejercicio8.html",
-            titulo: "Mi Tienda",
-            descripcion: "Ejercicio práctico de maquetación de una tienda online básica."
-        }, {
-            archivo: "Blog/Ejercicio1.9.html",
-            titulo: "Elementos visuales, relacionales y prácticos",
-            descripcion: "Clasificación de los elementos de diseño según su función en la interfaz."
-
-        }, {
-            archivo: "Blog/Actividad1/Actividad1.html",
-            titulo: "Línea Temporal",
-            descripcion: "Recorrido histórico de la evolución del diseño web."
-        }, {
-            archivo: "Blog/Actividad1.10/inicio.html",
-            titulo: "Sitemap",
-            descripcion: "Diseño de la arquitectura de la información y navegación de un sitio web."
-        },{
-            archivo: "Blog/Actividad14/Actividad1.14.html",
-            titulo: "html5",
-            descripcion: "Diseño Web Adaptativo y Flexible:Explorando los Modelos Fijo, Fluido,Elástico y Responsive"
-        },{
-            archivo: "Blog/Actividad15/Actividad1.15.html",
-            titulo: "Ancho Fijo",
-            descripcion: "Diseño Web Adaptativo y Flexible:Explorando los Modelos Fijo, Fluido,Elástico y Responsive"
-        },{
-            archivo: "Blog/Actividad16/Actividad1.16.html",
-            titulo: "Ancho Variable",
-            descripcion: "Diseño Web Adaptativo y Flexible:Explorando los Modelos Fijo, Fluido,Elástico y Responsive"
-        },{
-            archivo: "Blog/Actividad1.17.html",
-            titulo: "CMS",
-            descripcion: "¿Que son los CMS y cual utilizaría?"
-        },{
-            archivo: "Blog/Proyecto1/ProyectoUT1Planificacindeinterfaces.html",
-            titulo: "Proyecto",
-            descripcion: "Proyecto , Tema1"
-        },{
-            archivo: "Blog/Ejercicio2.2/Ejercicio2.2.html",
-            titulo: "Orden de prioridad css",
-            descripcion: "Aprende rel orden de prioridad"
-        },{
-            archivo: "Blog/Ejercicio2.3/Ejercicio2.3.html",
-            titulo: "Css en linea",
-            descripcion: "etiqueta h1 y p con colores"
-        },{
-            archivo: "Blog/Ejercicio2.4/Ejercicio2.4.html",
-            titulo: "Css en etiqueta style",
-            descripcion: "etiqueta h1 y p con colores en la etiqueta style"
-        },{
-            archivo: "Blog/Ejercicio2.5/Ejercicio2.5.html",
-            titulo: "Css en archivo externo",
-            descripcion: "etiqueta h1 y p con colores en un css externo"
-        },{
-            archivo: "Blog/Ejercicio2.6/index.html",
-            titulo: "Selectores básicos",
-            descripcion: "Selectores básicos"
-        }];
-        // ===============================================
-        // 2. LÓGICA DE GENERACIÓN DE TARJETAS (Paso 1)
-        // Se ejecuta al cargarse el script
-        // ===============================================
-        const containerEjercicios = document.getElementById("ejercicios-container");
-
-        ejercicios.forEach((ej, index) => {
-            const article = document.createElement("article");
-            const titulo = document.createElement("h2");
-            const descripcion = document.createElement("p");
-            const enlace = document.createElement("a");
-
-            titulo.textContent = ej.titulo || `Ejercicio ${index + 1}`;
-            descripcion.textContent = ej.descripcion;
-
-            enlace.href = ej.archivo;
-            enlace.className = "btn";
-            enlace.textContent = "Ver Ejercicio";
-
-            article.appendChild(titulo);
-            article.appendChild(descripcion);
-            article.appendChild(enlace);
-            containerEjercicios.appendChild(article);
         });
-        
-        // ===============================================
-        // 3. INICIO POR DEFECTO (Paso 3)
-        // Se ejecuta una vez que el DOM está completamente cargado
-        // ===============================================
-        document.addEventListener('DOMContentLoaded', () => {
-            // Asegúrate de que solo se llama después de que el DOM esté listo
-            showSection('inicio-container');
-        });
+    });
 
-    </script>
+    showSection('inicio-container');
+});
+</script>
+
+
+
+
 
 </body>
 

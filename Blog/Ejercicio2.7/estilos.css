@@ -1,0 +1,16 @@
+#subtitulo{
+    color:purple
+}
+.resaltado{
+    background-color: lightgray;
+}
+li{
+    color:red;
+}
+[type="password"]{
+    border: 2px solid blue;
+}
+*{
+  margin: 0;
+  padding: 0;
+}

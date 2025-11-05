@@ -304,3 +304,243 @@ footer a:hover {
         align-items: center;
     }
 }
+/* ===== Sección de temas dentro de Ejercicios ===== */
+.tema-section {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 10px rgba(0,255,255,0.1);
+    background: #0d0d0d;
+}
+
+.tema-titulo {
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-text-primary);
+    padding-bottom: 0.5rem;
+    text-shadow: var(--shadow-glow);
+}
+
+/* Reutiliza la cuadrícula de ejercicios pero con clase separada */
+.grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+/* ======== ACORDEONES DE TEMAS ======== */
+.tema-header {
+    width: 100%;
+    background: #0c0c0c;
+    color: var(--color-text-secondary);
+    font-size: 1.5rem;
+    font-family: var(--font-mono);
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+    text-align: left;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0,255,255,0.1);
+}
+
+.tema-header:hover {
+    background: #111;
+    box-shadow: var(--shadow-glow);
+}
+
+.tema-header .arrow {
+    transition: transform 0.3s;
+}
+
+.tema-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Contenido desplegable */
+.tema-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    border-top: none;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+}
+
+.tema-content.open {
+    max-height: 1000px;
+}
+
+/* Espacio interior cuando se abre */
+.tema-content .grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem 0;
+}
+
+/* Extra: animación al aparecer */
+.tema-content article {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.tema-header.active + .tema-content article {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ======== ACORDEONES MEJORADOS SCI-FI ======== */
+.tema-header {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(90deg, #0a0a0a 0%, #001f1f 100%);
+    color: var(--color-text-secondary);
+    font-size: 1.6rem;
+    font-family: var(--font-mono);
+    padding: 1.2rem 1.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+    margin-top: 1.2rem;
+    box-shadow: 0 0 10px rgba(0,255,255,0.1);
+    overflow: hidden;
+}
+
+.tema-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(0,255,255,0.1), transparent);
+    transition: all 0.6s;
+}
+
+.tema-header:hover::before {
+    left: 100%;
+}
+
+.tema-header:hover {
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    background: linear-gradient(90deg, #001010 0%, #002828 100%);
+}
+
+.tema-title {
+    flex-grow: 1;
+    text-shadow: 0 0 5px var(--color-text-secondary);
+}
+
+.tema-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-text-primary);
+    margin-right: 1rem;
+    box-shadow: 0 0 10px var(--color-text-primary);
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.6; box-shadow: 0 0 5px var(--color-text-primary); }
+    to { opacity: 1; box-shadow: 0 0 15px var(--color-text-secondary); }
+}
+
+.arrow {
+    transition: transform 0.4s ease;
+    font-size: 1.2rem;
+}
+
+.arrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* Contenido desplegable */
+.tema-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.6s ease;
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    border-top: none;
+    margin-top: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.tema-content .grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Tarjetas mejoradas */
+.tema-content article {
+    background: radial-gradient(circle at top left, #0e0e0e 0%, #020202 100%);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,255,153,0.1);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.tema-header.active + .tema-content article {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tema-content article:hover {
+    box-shadow: 0 0 15px var(--color-text-secondary);
+    transform: translateY(-5px) scale(1.02);
+}
+/* Centrar los temas en el medio */
+#ejercicios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Cada bloque (tema + ejercicios) */
+.tema-wrapper {
+    width: 80%;
+    max-width: 900px;
+}
+
+/* Botón del tema */
+.tema-header {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Contenedor desplegable */
+.tema-content {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+/* Cuadrícula de ejercicios centrada */
+.grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    padding: 2rem;
+}
+

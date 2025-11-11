@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 
-<body class="">
+<body>
 
     <header>
         <h1>Blog de Diseño de Interfaces Web</h1>
@@ -23,17 +23,15 @@
     </nav>
 
     <div class="container">
-        
+
         <div class="content" id="inicio-container">
             <article class="full-width-card">
                 <h2>Hola, soy Adrián Aránegas Molina</h2>
                 <div class="profile-content">
                     <img src="perfil.jpeg" alt="Foto de perfil de Adrián Aránegas Molina" class="profile-img">
-                    
                     <div class="profile-text">
                         <h3>Quién Soy</h3>
                         <p>Soy un estudiante de 2º de Desarrollo de Aplicaciones Web (DAW) apasionado por el diseño de interfaces. Me centro en la creación de experiencias de usuario intuitivas y visualmente atractivas.</p>
-                        
                         <h3>Mis Estudios</h3>
                         <ul>
                             <li>Título: Desarrollo de Aplicaciones Web (2º DAW)</li>
@@ -45,7 +43,6 @@
                 </div>
             </article>
         </div>
-
 
         <div class="content hidden" id="ejercicios-container">
             </div>
@@ -62,18 +59,20 @@
     <footer>
         <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
         <p>
-            <a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a>|
+            <a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a> |
             <a href="#" onclick="showSection('ejercicios-container'); return false;">Ejercicios</a>
         </p>
     </footer>
 
 <script>
+// Función para cambiar de sección
 function showSection(sectionId) {
     document.querySelectorAll('.container > .content').forEach(s => s.classList.add('hidden'));
     const target = document.getElementById(sectionId);
     if (target) target.classList.remove('hidden');
 }
 
+// Datos de los ejercicios
 const temas = {
     "Tema 1": [
         { archivo: "Blog/Atividad1.2.html", titulo: "El diseño web en la actualidad", descripcion: "Descubre cómo las tendencias actuales están moldeando las interfaces." },
@@ -97,7 +96,6 @@ const temas = {
         { archivo: "Blog/Ejercicio2.10/index.html", titulo: "Actividad 10", descripcion: "Selectores" },
         { archivo: "Blog/Ejercicio2.11/index.html", titulo: "Actividad 11", descripcion: "estilos en función de la jerarquía" },
         { archivo: "Blog/Ejercicio2.12/index.html", titulo: "Actividad 12", descripcion: "Herencia" }
-        
     ]
 };
 
@@ -131,40 +129,41 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             grid.appendChild(article);
         });
-
+        
         content.appendChild(grid);
         wrapper.appendChild(header);
         wrapper.appendChild(content);
         container.appendChild(wrapper);
 
-        // --- Acordeón exclusivo ---
+        // Lógica del Acordeón Exclusivo
         header.addEventListener("click", () => {
             const isActive = header.classList.contains("active");
 
+            // Cierra todos los acordeones
             document.querySelectorAll(".tema-header").forEach(h => {
                 h.classList.remove("active");
                 h.querySelector(".arrow").classList.remove("rotated");
             });
             document.querySelectorAll(".tema-content").forEach(c => {
                 c.style.maxHeight = null;
+                c.classList.remove('open'); 
             });
 
+            // Abre el acordeón seleccionado si no estaba activo
             if (!isActive) {
                 header.classList.add("active");
                 header.querySelector(".arrow").classList.add("rotated");
-                content.style.maxHeight = content.scrollHeight + "px";
+                // Usa scrollHeight para que la transición sea fluida
+                content.style.maxHeight = content.scrollHeight + "px"; 
+                content.classList.add('open'); // Activa la altura uniforme en CSS
             }
         });
     });
 
+    // Muestra la sección de inicio al cargar
     showSection('inicio-container');
 });
 </script>
 
-
-
-
-
 </body>
-
 </html>

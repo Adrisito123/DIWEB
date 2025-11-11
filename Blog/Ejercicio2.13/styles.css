@@ -1,0 +1,39 @@
+body {
+    color: blue;
+    font-family: "Courier New", Courier, monospace;
+}
+
+section p {
+    color: green;
+    font-family: Arial, sans-serif;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+#override {
+    color: red !important;
+}
+
+h1.title {
+    font-size: 36px;
+}
+
+/*
+    -¿Qué sucede si cambias el orden de las reglas CSS?
+    Que tiene mas prioridad una regla con !important sobre cualquier otra regla, 
+    si no se aplica quien tenga mayor especificidad, y si no quien este mas abao en el codigo.
+
+    -¿Cómo afecta la especificidad a los estilos aplicados en el párrafo #override?
+    Al ser un id  tiene mas especificidad que una clase o un elemento.
+
+    -¿Qué sucede si eliminas el !important de alguna regla?
+    Que se aplicaría la regla de mayor especificidad y como tiene mas prioridad el id se quedaria el codigo igual.
+
+    -¿Qué reglas son heredadas automáticamente y cuáles necesitas especificar explícitamente?
+    Propiedades de texto como color, font-family y font-size se heredan automáticamente a los hijos
+    Propiedades de caja como background-color, margin, padding o border no se heredan y deben especificarse explícitamente.
+
+    */

@@ -1,8 +1,3 @@
-queiro este codigo entero tal y como esta y le añades  eso que te he pedido tengo un problema con mi archivo y es que quiero que los bloques dentro de los temas salgan todos de igual tamaño , arreglamelo . /*
- * Tema Sci-Fi / Retro-Tech (Estilo de Terminal)
- * Base de color: Negro profundo (#080808) con acento Eléctrico/Cian (#00FFFF)
- */
-
 :root {
     --color-bg: #080808;
     --color-text-primary: #00FF99; /* Verde Neón para texto principal/títulos */

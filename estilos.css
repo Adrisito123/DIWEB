@@ -1,3 +1,8 @@
+/*
+ * Tema Sci-Fi / Retro-Tech (Estilo de Terminal)
+ * Base de color: Negro profundo (#080808) con acento Eléctrico/Cian (#00FFFF)
+ */
+
 :root {
     --color-bg: #080808;
     --color-text-primary: #00FF99; /* Verde Neón para texto principal/títulos */
@@ -34,7 +39,7 @@ header h1 {
     color: var(--color-text-secondary);
     text-shadow: 0 0 5px var(--color-text-secondary);
     margin: 0;
-    animation: text-flicker 1.5s infinite alternate; /* Efecto de parpadeo retro */
+    animation: text-flicker 1.5s infinite alternate;
 }
 
 header p {
@@ -48,7 +53,6 @@ header p {
     50% { opacity: 1; text-shadow: 0 0 8px var(--color-text-secondary); }
     100% { opacity: 0.8; text-shadow: var(--shadow-glow); }
 }
-
 
 /* Navegación */
 nav {
@@ -87,37 +91,16 @@ nav ul li a:hover {
     box-shadow: var(--shadow-glow);
 }
 
-/* Menú desplegable */
-nav ul li ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #000;
-    border: 1px solid var(--color-text-secondary);
-    box-shadow: var(--shadow-glow);
-}
-
-nav ul li:hover ul {
-    display: block;
-}
-
-nav ul li ul li a:hover {
-    background: #222;
-    color: var(--color-text-secondary);
-}
-
-
 /* Contenedor principal */
 .container {
     display: flex;
     max-width: 1300px;
     margin: 3rem auto;
     padding: 0 var(--padding-unit);
-    gap: 3rem; /* Mayor separación */
+    gap: 3rem;
 }
 
-/* Clase para ocultar elementos (usada por JavaScript) */
+/* Clase para ocultar elementos */
 .hidden {
     display: none !important;
 }
@@ -127,16 +110,7 @@ nav ul li ul li a:hover {
     flex: 3;
 }
 
-/* === Estilos ESPECÍFICOS por ID === */
-
-/* 1. Contenido de Ejercicios (Grid) */
-#ejercicios-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-}
-
-/* Estilos de la tarjeta de Perfil */
+/* Perfil */
 .profile-content {
     display: flex;
     align-items: flex-start;
@@ -147,7 +121,7 @@ nav ul li ul li a:hover {
 .profile-img {
     width: 150px;
     height: 150px;
-    border-radius: 0; /* Bordes duros */
+    border-radius: 0;
     object-fit: cover;
     border: 3px solid var(--color-text-primary);
     box-shadow: var(--shadow-glow);
@@ -166,7 +140,7 @@ nav ul li ul li a:hover {
 }
 
 .profile-text ul li:before {
-    content: ">"; /* Símbolo de terminal */
+    content: ">";
     color: var(--color-text-secondary);
     display: inline-block;
     width: 1em;
@@ -178,12 +152,11 @@ nav ul li ul li a:hover {
     padding-left: 1em;
 }
 
-
-/* Tarjetas de artículos (General) */
+/* Artículos (Generales) */
 article {
     background: #111;
     padding: var(--padding-unit);
-    border-radius: 0; /* Bordes duros */
+    border-radius: 0;
     border: 1px solid var(--color-border);
     box-shadow: 0 0 10px rgba(0, 255, 153, 0.1);
     transition: all 0.3s;
@@ -195,9 +168,12 @@ article:hover {
     box-shadow: var(--shadow-glow);
 }
 
-article h2 {
+article h2, article h3 {
     color: var(--color-text-primary);
     margin-bottom: 1rem;
+}
+
+article h2 {
     border-bottom: 1px dashed var(--color-border);
     padding-bottom: 0.5rem;
 }
@@ -207,8 +183,7 @@ article p {
     margin-bottom: 1.5rem;
 }
 
-
-/* Botones (Sci-Fi) */
+/* Botones */
 .btn {
     display: inline-block;
     padding: 0.7rem 1.5rem;
@@ -229,7 +204,7 @@ article p {
     transform: scale(1.02);
 }
 
-/* Barra lateral de contacto (Sci-Fi) */
+/* Barra lateral */
 .sidebar-contact {
     flex: 1;
     background: #111;
@@ -264,7 +239,7 @@ article p {
     text-shadow: 0 0 5px var(--color-text-primary);
 }
 
-/* Footer (Sci-Fi) */
+/* Footer */
 footer {
     text-align: center;
     padding: 2rem 1rem;
@@ -299,98 +274,14 @@ footer a:hover {
         align-items: center;
     }
 }
-/* ===== Sección de temas dentro de Ejercicios ===== */
-.tema-section {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 0 10px rgba(0,255,255,0.1);
-    background: #0d0d0d;
-}
 
-.tema-titulo {
-    font-size: 2rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--color-text-primary);
-    padding-bottom: 0.5rem;
-    text-shadow: var(--shadow-glow);
-}
-
-/* Reutiliza la cuadrícula de ejercicios pero con clase separada */
-.grid-ejercicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-/* ======== ACORDEONES DE TEMAS ======== */
-.tema-header {
-    width: 100%;
-    background: #0c0c0c;
-    color: var(--color-text-secondary);
-    font-size: 1.5rem;
-    font-family: var(--font-mono);
-    padding: 1rem 1.5rem;
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s;
-    text-align: left;
-    margin-top: 1rem;
-    box-shadow: 0 0 10px rgba(0,255,255,0.1);
-}
-
-.tema-header:hover {
-    background: #111;
-    box-shadow: var(--shadow-glow);
-}
-
-.tema-header .arrow {
-    transition: transform 0.3s;
-}
-
-.tema-header.active .arrow {
-    transform: rotate(180deg);
-}
-
-/* Contenido desplegable */
-.tema-content {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease-out;
-    background: #0d0d0d;
-    border: 1px solid var(--color-border);
-    border-top: none;
-    padding: 0 1rem;
+/* Temas y Acordeones */
+.tema-wrapper {
+    width: 80%;
+    max-width: 900px;
     margin-bottom: 2rem;
 }
 
-.tema-content.open {
-    max-height: 1000px;
-}
-
-/* Espacio interior cuando se abre */
-.tema-content .grid-ejercicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 1.5rem 0;
-}
-
-/* Extra: animación al aparecer */
-.tema-content article {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s ease;
-}
-
-.tema-header.active + .tema-content article {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* ======== ACORDEONES MEJORADOS SCI-FI ======== */
 .tema-header {
     position: relative;
     width: 100%;
@@ -408,20 +299,6 @@ footer a:hover {
     transition: all 0.4s ease;
     margin-top: 1.2rem;
     box-shadow: 0 0 10px rgba(0,255,255,0.1);
-    overflow: hidden;
-}
-
-.tema-header::before {
-    content: "";
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(0,255,255,0.1), transparent);
-    transition: all 0.6s;
-}
-
-.tema-header:hover::before {
-    left: 100%;
 }
 
 .tema-header:hover {
@@ -470,14 +347,16 @@ footer a:hover {
     border-radius: 0 0 8px 8px;
 }
 
+/* Grid de ejercicios dentro de cada tema */
 .tema-content .grid-ejercicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    /* Define columnas flexibles */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1.5rem;
     padding: 2rem;
 }
 
-/* Tarjetas mejoradas */
+/* Tarjetas uniformes */
 .tema-content article {
     background: radial-gradient(circle at top left, #0e0e0e 0%, #020202 100%);
     border: 1px solid var(--color-border);
@@ -485,56 +364,32 @@ footer a:hover {
     padding: 1.5rem;
     box-shadow: 0 0 10px rgba(0,255,153,0.1);
     transition: all 0.4s ease;
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-.tema-header.active + .tema-content article {
-    opacity: 1;
-    transform: translateY(0);
+    /* Flexbox interno: asegura que el botón se quede abajo */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+    /* Clave: asegura que el artículo se estire para ocupar el 100% de la celda de la cuadrícula */
+    align-self: stretch; 
 }
 
 .tema-content article:hover {
     box-shadow: 0 0 15px var(--color-text-secondary);
     transform: translateY(-5px) scale(1.02);
 }
-/* Centrar los temas en el medio */
+
+/* === REGLA CLAVE PARA UNIFORMIDAD DE ALTURA === */
+/* Esta regla solo se aplica cuando el JS añade la clase 'open' al tema-content, 
+   forzando a todas las filas de la cuadrícula a tener la misma altura. */
+.tema-content.open .grid-ejercicios {
+    grid-auto-rows: 1fr; 
+}
+
+/* Centrado de temas */
 #ejercicios-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     width: 100%;
-}
-
-/* Cada bloque (tema + ejercicios) */
-.tema-wrapper {
-    width: 80%;
-    max-width: 900px;
-}
-
-/* Botón del tema */
-.tema-header {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-}
-
-/* Contenedor desplegable */
-.tema-content {
-    width: 100%;
-    background: #0d0d0d;
-    border: 1px solid var(--color-border);
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-}
-
-/* Cuadrícula de ejercicios centrada */
-.grid-ejercicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    justify-items: center;
-    padding: 2rem;
 }

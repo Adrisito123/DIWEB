@@ -1,0 +1,18 @@
+p{
+    color:blue;
+}
+.container>h2 {
+    color:red;
+}
+.intro{
+    background-color: gray;
+}
+.intro , h2{
+    margin-bottom: 10px;
+}
+section h2{
+    color:green ;
+}
+.intro+p{
+    background-color: yellow;
+}

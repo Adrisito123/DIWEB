@@ -1,0 +1,44 @@
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  color: blue;
+}
+
+.parent {
+  font-family: 'Courier New', monospace;
+  color: red;
+}
+
+.default {
+  font-family: Verdana, sans-serif;
+  color: green;
+}
+
+.inherit {
+  font-family: inherit;
+  color: inherit;
+}
+
+.initial {
+  font-family: initial;
+  color: initial;
+}
+
+.unset {
+  font-family: unset;
+  color: unset;
+}
+
+.revert {
+  font-family: revert;
+  color: revert;
+}
+
+/*inherit: Toma el estilo del elemento padre porque fuerza la herencia, incluso si la propiedad no se hereda normalmente.
+
+initial: Restaura el valor por defecto definido por CSS, ignorando el estilo del padre; significa “volver al valor inicial del navegador”.
+
+unset: Si la propiedad es heredable actúa como inherit, y si no lo es actúa como initial; combina ambos comportamientos.
+
+revert: Revierte al valor predeterminado del navegador o de una hoja de estilo anterior, ignorando los estilos definidos por el autor.
+*/

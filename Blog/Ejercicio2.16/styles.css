@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* Todas las cajas */
+div {
+    min-height: 100vh;        /* Altura grande para permitir scroll */
+    padding: 40px;
+    color: white;
+    font-size: 1.4em;
+}
+
+/* 1. background-attachment: scroll */
+.primero {
+    background-image: url("cr7.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+}
+
+/* 2. background-attachment: fixed */
+.segundo {
+    background-image: url("fali.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 3. background-attachment: local */
+.tercer {
+    background-image: url("soria.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    overflow: auto;           /* Permite scroll interior para ver el efecto */
+}
+
+
+/*
+scroll: La imagen de fondo se mueve junto con todo el contenido de la página al hacer scroll.
+
+fixed: La imagen de fondo se mantiene fija en la pantalla mientras el contenido se desplaza sobre ella.
+
+local: La imagen de fondo se desplaza únicamente cuando el contenido del propio contenedor tiene scroll interno
+
+*/

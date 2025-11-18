@@ -1,0 +1,39 @@
+h1 , .parrafo1{
+    font-family: sans-serif;
+}
+.parrafo3{
+    font-family: 'Roboto' , serif;
+    line-height: 1.8;/* Espacio entre líneas */
+}
+h1{
+    font-size: 24px;
+}
+p{
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: lowercase;/*Cambiar a minúsculas*/
+    letter-spacing: 2px;/*Espacio ente palabras*/
+}
+
+/*
+1.¿Que diferencia notas en la legibilidad entre fuentes serfiz y sans-serif?
+    Que la sans-serif es mas gruesa , mas grande y se lee mejor
+
+2.¿Com oafecta el tamaño de la fuente y el interlineado a la comodidad de lectura?
+    Tiene que ser ni muy grande ni muy pequeña para la vista y el interlineado tiene que ser adecuado para que no se amontones las lineas
+
+3.¿Cuál es tu combinación de propiedades favorita para títulos  y párrafos?
+    Titulos:
+        -Tamaño:32px
+        -Funete:Courierr new
+        -Negrita
+        -Line-height:De unos 1.2 o 1.4
+    Párrafo:
+        -Fuente:Courirer new
+        -Tamaño:18px
+        -Line-height:Entre 1.5 o 1.8
+        -Letter-spacing: normal
+
+
+
+*/

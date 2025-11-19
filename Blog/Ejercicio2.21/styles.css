@@ -1,0 +1,20 @@
+h2{
+    border-style: dotted;/*Punteado*/
+    border-width: 3px;
+    border-color: blue;
+    margin: 20px;
+    padding: 10px;    
+}
+p{
+    border-style: solid;
+    border-top-width: 5px;
+    border-right-width: 10px;
+    border-bottom-width: 15px;
+    border-left-width: 20px;
+}
+button{
+    border-style: double;/*Doble linea*/
+    border-color: red;
+    border-width: 4px;
+    border-radius: 15px;
+}

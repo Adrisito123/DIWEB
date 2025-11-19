@@ -1,0 +1,15 @@
+ol.tareas{
+    list-style-type: decimal;
+    list-style-position: inside;
+    color:#003366;
+}
+ul.materiales{
+    list-style-type:square;
+    list-style-position: outside;
+    color:#2a7a1f;
+}
+ul.recursos{
+    list-style-image: none;
+    list-style-position: inside;
+    color:#444444;
+}

@@ -10,71 +10,75 @@
 
 <body>
 
-    <header>
-        <h1>Blog de Diseño de Interfaces Web</h1>
-        <p>2º DAW - Aprende, diseña y experimenta con UI moderna</p>
-    </header>
+<header>
+    <h1>Blog de Diseño de Interfaces Web</h1>
+    <p>2º DAW - Aprende, diseña y experimenta con UI moderna</p>
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a></li>
-            <li><a href="#" onclick="showSection('ejercicios-container'); return false;">Ejercicios</a></li>
-        </ul>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a></li>
+        <li><a href="#" onclick="openTema(1); return false;">Tema 1</a></li>
+        <li><a href="#" onclick="openTema(2); return false;">Tema 2</a></li>
+    </ul>
+</nav>
 
-    <div class="container">
+<div class="container">
 
-        <div class="content" id="inicio-container">
-            <article class="full-width-card">
-                <h2>Hola, soy Adrián Aránegas Molina</h2>
-                <div class="profile-content">
-                    <img src="perfil.jpeg" alt="Foto de perfil de Adrián Aránegas Molina" class="profile-img">
-                    <div class="profile-text">
-                        <h3>Quién Soy</h3>
-                        <p>Soy un estudiante de 2º de Desarrollo de Aplicaciones Web (DAW) apasionado por el diseño de interfaces. Me centro en la creación de experiencias de usuario intuitivas y visualmente atractivas.</p>
-                        <h3>Mis Estudios</h3>
-                        <ul>
-                            <li>Título: Desarrollo de Aplicaciones Web (2º DAW)</li>
-                            <li>Centro: I.E.S. Ntra. Sra. de los Remedios </li>
-                            <li>Especialidad: Diseño de Interfaces Web (UI/UX), HTML5, CSS3 y JavaScript.</li>
-                        </ul>
-                        <p>Este blog es un recopilatorio de los ejercicios realizados en la asignatura de Diseño de Interfaces Web.</p>
-                    </div>
+    <!-- Sección Inicio -->
+    <div class="content" id="inicio-container">
+        <article class="full-width-card">
+            <h2>Hola, soy Adrián Aránegas Molina</h2>
+            <div class="profile-content">
+                <img src="perfil.jpeg" alt="Foto de perfil de Adrián Aránegas Molina" class="profile-img">
+                <div class="profile-text">
+                    <h3>Quién Soy</h3>
+                    <p>Soy un estudiante de 2º de Desarrollo de Aplicaciones Web (DAW) apasionado por el diseño de interfaces. Me centro en la creación de experiencias de usuario intuitivas y visualmente atractivas.</p>
+                    <h3>Mis Estudios</h3>
+                    <ul>
+                        <li>Título: Desarrollo de Aplicaciones Web (2º DAW)</li>
+                        <li>Centro: I.E.S. Ntra. Sra. de los Remedios </li>
+                        <li>Especialidad: Diseño de Interfaces Web (UI/UX), HTML5, CSS3 y JavaScript.</li>
+                    </ul>
+                    <p>Este blog es un recopilatorio de los ejercicios realizados en la asignatura de Diseño de Interfaces Web.</p>
                 </div>
-            </article>
-        </div>
-
-        <div class="content hidden" id="ejercicios-container">
             </div>
-
-        <aside class="sidebar-contact">
-            <h3>Contáctanos</h3>
-            <p><strong>Nombre:</strong> Adrián Aránegas Molina</p>
-            <p><strong>Email:</strong> aaramol2909@g.educaand.es</p>
-            <p><strong>Redes Sociales:</strong></p>
-            <a href="https://github.com/Adrisito123/DIWEB">GitHub</a>
-        </aside>
+        </article>
     </div>
 
-    <footer>
-        <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
-        <p>
-            <a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a> |
-            <a href="#" onclick="showSection('ejercicios-container'); return false;">Ejercicios</a>
-        </p>
-    </footer>
+    <!-- Sección de Ejercicios por Tema -->
+    <div class="content hidden" id="tema-container"></div>
+
+    <aside class="sidebar-contact">
+        <h3>Contáctanos</h3>
+        <p><strong>Nombre:</strong> Adrián Aránegas Molina</p>
+        <p><strong>Email:</strong> aaramol2909@g.educaand.es</p>
+        <p><strong>Redes Sociales:</strong></p>
+        <a href="https://github.com/Adrisito123/DIWEB">GitHub</a>
+    </aside>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 2º DAW - Blog de Diseño de Interfaces Web</p>
+    <p>
+        <a href="#" onclick="showSection('inicio-container'); return false;">Inicio</a> |
+        <a href="#" onclick="openTema(1); return false;">Tema 1</a> |
+        <a href="#" onclick="openTema(2); return false;">Tema 2</a>
+    </p>
+</footer>
 
 <script>
-// Función para cambiar de sección
+// Mostrar/ocultar secciones
 function showSection(sectionId) {
     document.querySelectorAll('.container > .content').forEach(s => s.classList.add('hidden'));
     const target = document.getElementById(sectionId);
     if (target) target.classList.remove('hidden');
 }
 
-// Datos de los ejercicios
+// Datos de ejercicios con tus rutas y descripciones
 const temas = {
-    "Tema 1": [
+    1: [
         { archivo: "Blog/Atividad1.2.html", titulo: "El diseño web en la actualidad", descripcion: "Descubre cómo las tendencias actuales están moldeando las interfaces." },
         { archivo: "Blog/Actividad1.3.html", titulo: "Interfaz, UI, UX", descripcion: "Definición y diferencias entre UI y UX." },
         { archivo: "Blog/Actividad1.4.html", titulo: "Interacción Persona - Ordenador", descripcion: "Cómo los usuarios interactúan con los sistemas informáticos." },
@@ -84,7 +88,7 @@ const temas = {
         { archivo: "Blog/Actividad1.10/inicio.html", titulo: "Sitemap", descripcion: "Diseño de la arquitectura de información." },
         { archivo: "Blog/Proyecto1/ProyectoUT1Planificacindeinterfaces.html", titulo: "Proyecto Tema 1", descripcion: "Proyecto de planificación de interfaces." }
     ],
-    "Tema 2": [
+    2: [
         { archivo: "Blog/Ejercicio2.2/Ejercicio2.2.html", titulo: "Actividad 2", descripcion: "Aprende el orden de prioridad de estilos." },
         { archivo: "Blog/Ejercicio2.3/Ejercicio2.3.html", titulo: "Actividad 3", descripcion: "Uso del atributo style directamente." },
         { archivo: "Blog/Ejercicio2.4/Ejercicio2.4.html", titulo: "Actividad 4", descripcion: "Definir estilos dentro del HTML." },
@@ -94,7 +98,7 @@ const temas = {
         { archivo: "Blog/Ejercicio2.8/index.html", titulo: "Actividad 8", descripcion: "Poner los párrafos par rojo y los impares verde" },
         { archivo: "Blog/Ejercicio2.9/index.html", titulo: "Actividad 9", descripcion: "Selectores" },
         { archivo: "Blog/Ejercicio2.10/index.html", titulo: "Actividad 10", descripcion: "Selectores" },
-        { archivo: "Blog/Ejercicio2.11/index.html", titulo: "Actividad 11", descripcion: "estilos en función de la jerarquía" },
+        { archivo: "Blog/Ejercicio2.11/index.html", titulo: "Actividad 11", descripcion: "Estilos en función de la jerarquía" },
         { archivo: "Blog/Ejercicio2.12/index.html", titulo: "Actividad 12", descripcion: "Herencia" },
         { archivo: "Blog/Ejercicio2.13/index.html", titulo: "Actividad 13", descripcion: "Los tres conceptos: Herencia, especificidad y cascada" },
         { archivo: "Blog/Ejercicio2.14/index.html", titulo: "Actividad 14", descripcion: "Unidades de medida" },
@@ -108,68 +112,39 @@ const temas = {
     ]
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("ejercicios-container");
+// Función para mostrar solo los ejercicios de un tema
+function openTema(num) {
+    const container = document.getElementById('tema-container');
+    container.innerHTML = ''; // Limpiar contenido anterior
+    showSection('tema-container');
 
-    Object.entries(temas).forEach(([tema, lista]) => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "tema-wrapper";
+    const ejercicios = temas[num];
+    if (!ejercicios) return;
 
-        const header = document.createElement("button");
-        header.className = "tema-header";
-        header.innerHTML = `
-            <div class="tema-icon"></div>
-            <span class="tema-title">${tema}</span>
-            <span class="arrow">▼</span>
+    // Crear un título de tema
+    const temaTitle = document.createElement('h2');
+    temaTitle.textContent = `Tema ${num}`;
+    temaTitle.style.textAlign = 'center';
+    temaTitle.style.marginBottom = '2rem';
+    container.appendChild(temaTitle);
+
+    // Crear grid de ejercicios
+    const grid = document.createElement('div');
+    grid.className = 'grid-ejercicios';
+    ejercicios.forEach(ej => {
+        const article = document.createElement('article');
+        article.innerHTML = `
+            <h3>${ej.titulo}</h3>
+            <p>${ej.descripcion}</p>
+            <a href="${ej.archivo}" class="btn">Ver Ejercicio</a>
         `;
-
-        const content = document.createElement("div");
-        content.className = "tema-content";
-
-        const grid = document.createElement("div");
-        grid.className = "grid-ejercicios";
-
-        lista.forEach(ej => {
-            const article = document.createElement("article");
-            article.innerHTML = `
-                <h3>${ej.titulo}</h3>
-                <p>${ej.descripcion}</p>
-                <a href="${ej.archivo}" class="btn">Ver Ejercicio</a>
-            `;
-            grid.appendChild(article);
-        });
-        
-        content.appendChild(grid);
-        wrapper.appendChild(header);
-        wrapper.appendChild(content);
-        container.appendChild(wrapper);
-
-        // Lógica del Acordeón Exclusivo
-        header.addEventListener("click", () => {
-            const isActive = header.classList.contains("active");
-
-            // Cierra todos los acordeones
-            document.querySelectorAll(".tema-header").forEach(h => {
-                h.classList.remove("active");
-                h.querySelector(".arrow").classList.remove("rotated");
-            });
-            document.querySelectorAll(".tema-content").forEach(c => {
-                c.style.maxHeight = null;
-                c.classList.remove('open'); 
-            });
-
-            // Abre el acordeón seleccionado si no estaba activo
-            if (!isActive) {
-                header.classList.add("active");
-                header.querySelector(".arrow").classList.add("rotated");
-                // Usa scrollHeight para que la transición sea fluida
-                content.style.maxHeight = content.scrollHeight + "px"; 
-                content.classList.add('open'); // Activa la altura uniforme en CSS
-            }
-        });
+        grid.appendChild(article);
     });
+    container.appendChild(grid);
+}
 
-    // Muestra la sección de inicio al cargar
+// Mostrar inicio por defecto
+document.addEventListener('DOMContentLoaded', () => {
     showSection('inicio-container');
 });
 </script>

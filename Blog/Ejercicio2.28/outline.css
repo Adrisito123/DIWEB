@@ -1,0 +1,15 @@
+.section1{
+    outline-style: dotted;
+    outline-color: aqua;
+}
+.section2{
+    outline-style: solid;
+    outline-width: 5px;
+    outline-color: blueviolet;
+}
+.section3{
+    /*Separar el entorno del cuadrado*/
+    outline-offset: 10px;
+    outline-style: dashed;
+    outline-color: chocolate;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 30</title>
+    <link rel="stylesheet" href="display.css">
+</head>
+<body>
+        <h1>Posicionamiento (layout): display</h1>
+
+        <div class="lista">
+            <ul>
+                <li>display:Te dice como va a ser un elemento HTML</li>
+                <li>block: ocupa todo el ancho disponible y empieza en una nueva línea</li>
+                <li>inline:se muestra en línea con otros elementos</li>
+                <li>inline-block:se comporta como inline pero permite ancho y alto</li>
+                <li>none:oculta completamente el elemento</li>
+            </ul>
+        </div>
+
+    <span class="block">Div con display: block</span>
+
+    <div class="inline">Span 1</div>
+    <div class="inline">Span 2</div>
+    <div class="inline">Span 3</div>
+
+    <p class="inline-block">Párrafo con display: inline-block</p>
+    <p class="inline-block">Otro párrafo inline-block</p>
+
+    <p class="none">Parrafo con none</p>
+
+        
+    <button id="toggleButton">Mostrar/Ocultar botón oculto</button>
+    <button id="hiddenButton" class="none">Soy un botón oculto</button>
+    <script>
+         const toggleBtn = document.getElementById('toggleButton');
+        const hiddenBtn = document.getElementById('hiddenButton');
+
+        toggleBtn.addEventListener('click', () => {
+            if (hiddenBtn.style.display === 'none' ) {
+                hiddenBtn.style.display = 'inline-block';
+            } else {
+                hiddenBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.block {
+    display: block;
+    background-color: #ff0015;
+}
+.inline {
+    display: inline;
+    background-color: #00d9ff;
+}
+.inline-block {
+    display: inline-block;
+    background-color: #00ff3c;
+}
+.none {
+    display: none;
+}

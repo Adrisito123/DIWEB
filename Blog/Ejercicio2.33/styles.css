@@ -1,0 +1,26 @@
+.cuadrado1{
+    position: absolute;
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+    top: 0px;
+    z-index: 0;
+}
+.cuadrado2{
+    position: absolute;
+    background-color: black;
+    width: 300px;
+    height: 300px;
+    top: 40px;
+    left: 40px;
+    z-index: 1;
+}
+.cuadrado3{
+    position: absolute;
+    background-color: rgb(94, 0, 0);
+    width: 300px;
+    height: 300px;
+    top: 80px;
+    z-index: 2;
+    left: 80px;
+}

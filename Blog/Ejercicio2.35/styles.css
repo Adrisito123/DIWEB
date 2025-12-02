@@ -1,0 +1,10 @@
+.article-image{
+    float: right;
+}
+.footer-note{
+    clear: both;
+}
+img{
+    width: 300px;
+    height: 150;
+}

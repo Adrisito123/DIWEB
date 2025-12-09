@@ -1,0 +1,23 @@
+ul :first-child {
+    background-color: #007bff;
+}
+
+ul :last-child {
+    font-weight: bold;
+}
+
+
+.tareas :nth-child(3) {
+    color: rgb(0, 255, 0);
+    font-style: italic;
+}
+
+
+/* Hermanos inmediatos del elemento "Pagar facturas" */
+.tareas :nth-child(3) + li {
+    color: violet;
+}
+
+.contactos :nth-child(2) {
+    border: 2px solid black;
+}

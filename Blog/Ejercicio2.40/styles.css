@@ -1,0 +1,19 @@
+p::first-line{
+    color: blue;
+    font-size: 25px;
+}
+p::first-letter{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}
+body::before{
+    content:"Hola buenas";
+}
+body::after{
+    content: " Adios buenas";
+}
+body::selection{
+    background-color: lightpink;
+    color: black;
+}

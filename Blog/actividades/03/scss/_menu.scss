@@ -1,0 +1,17 @@
+.menu{
+    padding: $paddinBase;
+    font-family: $fuente;
+    background-color: burlywood;
+    ul{
+        background-color: lightgray;
+        li{
+            display: inline-block;
+            a{
+                color: black;
+                &:hover{
+                    background-color:$colorSecundario;
+                }
+            }
+        }
+    }
+}

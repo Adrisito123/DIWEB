@@ -1,0 +1,39 @@
+.header {
+  background-color: blue;
+  color: White;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu {
+  padding: 10px;
+  font-family: "Courier New";
+  background-color: burlywood;
+}
+.menu ul {
+  background-color: lightgray;
+}
+.menu ul li {
+  display: inline-block;
+}
+.menu ul li a {
+  color: black;
+}
+.menu ul li a:hover {
+  background-color: red;
+}
+
+.content {
+  background-color: lightblue;
+  padding: 10px;
+  font-family: "Courier New";
+  color: blue;
+}
+.content h2 {
+  color: red;
+  text-align: center;
+}
+.content p {
+  padding-bottom: 20px;
+  padding-left: 10px;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,30 @@
+.menu {
+  background-color: #333;
+  padding: 10px;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu ul li {
+  display: inline;
+  margin-right: 15px;
+}
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+.menu ul li a:hover {
+  color: #2ecc71;
+}
+
+.content {
+  padding: 20px;
+}
+.content h2 {
+  color: #3498db;
+}
+.content p {
+  color: #555;
+}/*# sourceMappingURL=estilos.css.map */

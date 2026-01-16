@@ -1,0 +1,44 @@
+.menu {
+  background-color: #333;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu ul li {
+  display: inline;
+  margin-right: 15px;
+}
+.menu ul li a {
+  color: white;
+  font-size: 14px;
+}
+.menu ul li a text {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.menu ul li a:hover {
+  color: #2ecc71;
+}
+
+.content padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.content text {
+  text-align: left;
+}
+.content h2 {
+  color: #3498db;
+}
+.content h2 font {
+  font: bold;
+  font-size: 24px;
+}
+.content p {
+  color: #555;
+}/*# sourceMappingURL=estilos.css.map */

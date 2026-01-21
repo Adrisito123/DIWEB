@@ -1,0 +1,33 @@
+@primary-color:blue;
+@text-color:#333;
+@spacing:20px;
+@base:16px;
+
+.flex-center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: lightblue;
+    width: 600px;
+    height: 600px;
+    .flex-center();
+    .card-title{
+        color:@primary-color;
+        background-color: aliceblue;
+    }
+    .card-price{
+        color: @text-color;
+        font-size: (@base * 2);
+        text-align: center;
+    }
+    .card-btn{
+        background-color: chocolate;
+        &:hover{
+            background-color: aqua;
+        }
+
+    }
+}

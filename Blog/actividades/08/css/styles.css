@@ -1,0 +1,23 @@
+.card {
+  background-color: lightblue;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .card-title {
+  color: blue;
+  background-color: aliceblue;
+}
+.card .card-price {
+  color: #333;
+  font-size: 32px;
+  text-align: center;
+}
+.card .card-btn {
+  background-color: chocolate;
+}
+.card .card-btn:hover {
+  background-color: aqua;
+}

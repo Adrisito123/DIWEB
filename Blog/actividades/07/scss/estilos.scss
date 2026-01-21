@@ -1,0 +1,33 @@
+$base: 10px;
+$ancho-total: 1200px;
+$ancho-caja: 360px;
+$modo-compacto: true;
+
+.caja {
+  padding: $base * 2;
+  margin-bottom: $base + 5px;
+  width: ($ancho-caja / $ancho-total) * 100%;
+  height: $base * 6;
+}
+
+.texto {
+  $tamano-fuente: 14px;
+  font-size: $tamano-fuente;
+
+  @if $tamano-fuente >= 16px {
+    font-weight: bold;
+  } @else {
+    font-weight: normal;
+  }
+}
+body {
+  @if $modo-compacto == true and $base < 15px {
+    background-color: #ffffff;
+    color: #333;
+  }
+}
+
+$posicion: "top";
+.margen-#{$posicion} {
+  margin-top: $base * 2;
+}

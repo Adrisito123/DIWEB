@@ -1,0 +1,83 @@
+
+$colores: (
+  primario: #3498db,
+  secundario: #2ecc71,
+  alerta: #e74c3c
+);
+
+$tipos-fuente: ("Arial", "Verdana", "Helvetica");
+
+.titulo {
+  &::before {
+    content: unquote(to-upper-case("Mi título"));
+  }
+}
+
+
+.caja {
+  $ancho-px: 480;
+  $total-px: 1200;
+  width: percentage(ceil($ancho-px / $total-px)); 
+  background-color: map-get($colores, secundario);
+}
+
+
+.fuentes {
+  font-family: nth($tipos-fuente, 2); 
+  @debug "Número de fuentes: #{length($tipos-fuente)}";
+}
+
+
+.boton-primario {
+  background-color: map-get($colores, primario);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+
+  &::after {
+    content: if(map-has-key($colores, alerta), " Alerta existe", " Sin alerta");
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+}
+
+.boton1 {
+  background-color: map-get($colores, secundario);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+
+  #{selector-append(&, ":hover")} {
+    background-color: darken(map-get($colores, secundario), 10%);
+    cursor: pointer;
+  }
+}
+
+.boton2 {
+  background-color: map-get($colores, alerta);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+
+  #{selector-append(&, ":hover")} {
+    background-color: lighten(map-get($colores, alerta), 10%);
+    cursor: pointer;
+  }
+}
+
+
+.info {
+  @debug "Tipo de $colores: #{type-of($colores)}"; 
+  @debug "Tipo de $tipos-fuente: #{type-of($tipos-fuente)}"; 
+}
+
+
+.alerta {
+  background-color: lighten(map-get($colores, alerta), 15%);
+  opacity: 0.9;
+}

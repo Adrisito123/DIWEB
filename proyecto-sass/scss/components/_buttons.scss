@@ -1,0 +1,30 @@
+@use '../base/variables' as *;
+@mixin btn-base( $colorFondo, $text-color: $colorBlanco, $font-size: 14px) {
+    background-color: $colorFondo;
+    color: $text-color;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    font-size: $font-size;
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: darken($colorFondo, 10%);
+    }
+}
+
+.btn-entrar {
+    @include btn-base($colorSecundario);
+}
+
+.btn-invitado {
+    @include btn-base($textoPrincipal, $colorBlanco, 16px);
+}
+
+.btn-add {
+    @include btn-base($colorSecundario, $colorBlanco, 14px);
+    width: calc(100% / 2 - 20px);
+}

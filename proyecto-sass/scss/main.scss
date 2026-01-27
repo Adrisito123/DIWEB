@@ -1,0 +1,18 @@
+// Base
+@use 'base/reset';
+@use 'base/variables';
+@use 'base/tipografia';
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+body {
+    background-color: variables.$colorFondo;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}

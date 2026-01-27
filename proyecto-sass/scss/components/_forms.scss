@@ -1,0 +1,135 @@
+@use '../base/variables' as *;
+@use 'buttons' as *;
+.login-container {
+    background-color: $colorFondo;
+    width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: $fuentePrincipal;
+    .logo img {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: $textoPrincipal;
+        }
+        label {
+            text-align: left;
+            font-weight: bold;
+            color: $textoPrincipal;
+        }
+        input {
+            padding: 10px;
+            border-radius: $border-radius;
+            border: none;
+            background-color: $colorBlanco;
+            font-size: 16px;
+        }
+    }
+}
+
+.contact-form {
+    background-color: $colorFondo;
+    padding: 40px;
+    border-radius: $border-radius;
+    max-width: 600px;
+    margin: 50px auto;
+    font-family: $fuentePrincipal;
+    h2 {
+        text-align: center;
+        color: $textoPrincipal;
+        margin-bottom: 30px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: $textoPrincipal;
+    }
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: $border-radius;
+        border: 1px solid darken($colorFondo, 20%);
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .btn-submit {
+        @extend .btn-entrar;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.cart-container {
+    margin: auto;
+    background-color: $colorFondo;
+    padding: 30px;
+    h2 {
+        text-align: center;
+        color: $textoPrincipal;
+        margin-bottom: 30px;
+    }
+    .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $colorBlanco;
+        border-radius: $border-radius;
+        padding: 15px;
+        margin-bottom: 15px;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: $border-radius;
+        }
+        .item-info {
+            flex: 1;
+            margin-left: 15px;
+            h3 {
+                color: $textoPrincipal;
+                margin-bottom: 5px;
+            }
+            p {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            .item-price {
+                font-weight: bold;
+                color: $colorSecundario;
+            }
+        }
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            button {
+                @extend .btn-entrar;
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+    }
+    .cart-total {
+        text-align: right;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $textoPrincipal;
+    }
+    .btn-checkout {
+        @extend .btn-entrar;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+}

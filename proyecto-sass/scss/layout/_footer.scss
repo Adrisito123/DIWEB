@@ -1,0 +1,10 @@
+@use '../base/variables';
+
+.footer {
+  background-color: variables.$colorFondoHeader;
+  color: variables.$colorBlanco;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; 
+  width: 100%;
+}

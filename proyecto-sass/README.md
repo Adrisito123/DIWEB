@@ -62,3 +62,20 @@ Modularidad: los parciales SCSS permiten mantener el proyecto ordenado.
 Mantenimiento sencillo: cambios en variables o mixins se aplican a toda la web.
 
 Código más profesional y limpio: ideal para trabajar en equipo.
+
+💪 Mejoras Futuras
+
+Header:
+    -Hacer un poco mas pequeño
+
+Logo:
+    -Logo mas pequeño
+    -Imagen del logo que se vea mejor el nombre del local
+
+Colores:
+    -Colores principales mas llamativos y modernos
+    -Color del fondo mejorable ej:(imagenes)
+
+Carrito:
+    -Boton para añadir o quitar cantidad
+

@@ -1,0 +1,70 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightseagreen;
+    padding: 20px;
+}
+
+.header .menu {
+    display: flex;                 
+    gap: 20px;                 
+}
+
+.header .menu a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main{
+    display:flex;
+    gap:30px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.sidebar{
+    width: 200px;          
+    flex-shrink: 0;  /* no se encoge */
+    background-color:aquamarine ;
+    padding: 15px;
+    border-radius: 40px;
+}
+
+.sidebar ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contenido{
+     flex-grow: 1;  /* ocupa el espacio restante */
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    gap:50px;
+}
+.card{
+    flex-grow: 1;       /* puede crecer para ocupar espacio disponible */
+    flex-shrink: 1;     /* puede encogerse si el contenedor se hace más pequeño */
+    flex-basis: 200px;  /* ancho base inicial */
+    background-color: aquamarine;
+    padding: 50px;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: lightgray;
+}
+.footer p{
+    font-weight: bold;
+}

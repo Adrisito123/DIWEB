@@ -1,0 +1,14 @@
+.menu{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background-color: bisque;
+    height: 100px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-left: 20px;
+}

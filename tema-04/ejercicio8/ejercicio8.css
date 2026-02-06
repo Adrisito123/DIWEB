@@ -1,0 +1,31 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-areas: "header header header" "menu contenido extra" "menu contenido extra" "footer footer footer";
+    gap: 10px;
+}
+
+.header {
+    grid-area: header;
+    background-color: lightseagreen
+}
+
+.menu {
+    grid-area: menu;
+    background-color: lightseagreen
+}
+
+.contenido {
+    grid-area: contenido;
+    background-color: lightseagreen
+}
+
+.extra {
+    grid-area: extra;
+    background-color: lightseagreen
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightseagreen
+}

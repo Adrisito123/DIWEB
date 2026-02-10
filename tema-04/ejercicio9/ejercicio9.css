@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;
+}
+
+.layout {
+    /* Hace que el layout tenga al menos la altura de la pantalla */
+    min-height: 100vh;
+    display: grid;
+    /* Define tres filas:
+     - 80px para el header
+     - 1fr ocupa el espacio restante
+     - 60px para el footer */
+    grid-template-rows: 100px 1fr 60px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #222;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #f4f4f4;
+}
+
+.card {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #222;
+    color: white;
+}

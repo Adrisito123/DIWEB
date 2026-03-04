@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 2</title>
+<style>
+.video-container {
+    width: 640px;
+    border: 2px solid black;
+    padding: 5px;
+}
+video {
+    width: 100%;
+}
+.controls {
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<h2>PPerro</h2>
+
+<div class="video-container">
+    <video id="miVideo" poster="video/portada.jpg">
+        <source src="video/hazme un video de un perro metiendo gol de penalti.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de vídeo.
+    </video>
+
+    <div class="controls">
+        <button onclick="playVideo()">Play</button>
+        <button onclick="pauseVideo()">Pause</button>
+        <button onclick="stopVideo()">Stop</button>
+    </div>
+</div>
+
+<br>
+
+<a href="video/video.mp4" download>Descargar vídeo</a><br>
+<a href="video/video.mp4" target="_blank">Abrir en nueva pestaña</a>
+
+<script>
+let video = document.getElementById("miVideo");
+
+function playVideo() {
+    video.play();
+}
+
+function pauseVideo() {
+    video.pause();
+}
+
+function stopVideo() {
+    video.pause();
+    video.currentTime = 0;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+@use '../base/variables' as *;
+
+.footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: $colorFondoHeader;
+    color: $colorBlanco;
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+
+    a {
+        color: $colorBlanco;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .cc-license {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+}

@@ -1,0 +1,29 @@
+.audio-container {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+audio::-webkit-media-controls-enclosure {
+    background-color: #e0f7fa;
+    border-radius: 10px;
+}
+audio::-webkit-media-controls-play-button {
+    background-color: #00acc1;
+    border-radius: 50%;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
